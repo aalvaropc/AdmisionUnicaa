@@ -13,7 +13,7 @@
 3. Abrir la solución Loog.sln
 4. Podras observar las 4 capas, para ver los formularios abrir Presentation
 
-* Nota: Cambiar el nombre de la base de datos "ALVARHOX31415" que se encuentra en DataAccess/ConnectionToSql por el nombre de tu base de datos *
+*Nota: Cambiar el nombre de la base de datos "ALVARHOX31415" que se encuentra en DataAccess/ConnectionToSql por el nombre de tu base de datos*
 
 ## Pasos para usar el Log in
 1. Abrir la carpeta ScriptSql
