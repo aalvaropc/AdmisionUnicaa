@@ -36,7 +36,7 @@ namespace Presentation
                 if (txtPassword.Text != "")
                 {
                     UserModel user = new UserModel();
-                    var validLogin = user.LoginUser(txtUser.Text, txtPassword.Text);
+                    var validLogin = user.LoginUser(txtUser.Text , txtPassword.Text);
                     if (validLogin == true)
                     {
                         Home mainmenu = new Home();
