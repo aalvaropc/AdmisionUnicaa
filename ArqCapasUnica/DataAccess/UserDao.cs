@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Common.Cache;
+using System.Xml.Linq;
 
 namespace DataAccess
 {
@@ -64,6 +65,21 @@ namespace DataAccess
                     {
                         return false;
                     }
+                }
+            }
+        }
+
+        public void generate(string idPostulante, string nombre, string apePaterno, string apeMaterno)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = $"insert into Postulante values('{idPostulante}', '{nombre}', '{apePaterno}', '{apeMaterno}')";
+                    command.CommandType = CommandType.Text;
+                    command.ExecuteNonQuery();
                 }
             }
         }
