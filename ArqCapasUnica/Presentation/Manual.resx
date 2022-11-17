@@ -117,4 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lbl_cursitos.Text" xml:space="preserve">
+    <value>
+BIOLOGIA	                 :
+
+QUIMICA	                 :
+
+FISICA		                 :
+ 
+FILOSOFIA	                 :
+
+ECONOMIA	                 :
+
+GEOGRAFIA	                  :
+
+HISTORIA UNIVERSAL            :
+
+HISTORIA DEL PERU               :
+
+EDUCACION CIVICA              :
+
+PSICOLOGIA	                  :
+
+LITERATURA	                  :
+
+LENGUAJE	                  :
+
+TRIGONOMETRIA	                  :
+
+GEOMETRIA	                  :
+
+ALGEBRA	                  :
+
+ARITMETICA	                  :
+
+RAZONAMIENTO VERBAL     :
+
+RAZAMIENTO MATEMATICO:</value>
+  </data>
 </root>
