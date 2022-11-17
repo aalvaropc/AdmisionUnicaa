@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,10 @@ using System.Web;
 using System.Windows.Forms;
 using Common.Cache;
 using Domain;
+
+
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Presentation
 {
@@ -43,14 +48,14 @@ namespace Presentation
                 string apMaterno = "";
                 //Console.WriteLine(fullName
 
-                nombre = $"{fullName.Split(' ')[2].ToString()} {fullName.Split(' ')[3].ToString()}";
-                apPaterno = fullName.Split(' ')[0].ToString();
-                apMaterno = fullName.Split(' ')[1].ToString();
+                nombre = $"{fullName.Split(' ')[2]} {fullName.Split(' ')[3]}";
+                apPaterno = fullName.Split(' ')[0];
+                apMaterno = fullName.Split(' ')[1];
                 
                 
                 if (almacenado == 0)
                 {
-                    MessageBox.Show(nombre + "-" + apPaterno + "-" + apMaterno);
+                    //MessageBox.Show(nombre + "-" + apPaterno + "-" + apMaterno);
                     PostulanteModel postulante = new PostulanteModel();
                     postulante.generate(r.Next(70000000, 79999999).ToString(), nombre, apPaterno, apMaterno);
                 }
@@ -63,6 +68,24 @@ namespace Presentation
                     }
                 }
             }
+            //---------
+
+
+            SqlConnection cn = new SqlConnection("Server=LAPTOP-8LNIGLG0;DataBase=MyCompany; integrated security=true"); ;
+            SqlCommand cmd = new SqlCommand("Select * from Postulante", cn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            cn.Close();
+
+
+
+
+            //---------
+
+
+
             sr.Close();
             almacenado += cantidadPos;
 
