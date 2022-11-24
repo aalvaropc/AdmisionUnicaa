@@ -68,5 +68,29 @@ namespace DataAccess
             }
         }
 
+        public SqlDataAdapter llenarTabla(int opc, String buscar)
+        {
+            SqlDataAdapter adapter;
+            switch (opc) 
+            {
+                case 0:
+                    adapter = new SqlDataAdapter("SELECT CODPOST AS 'Código', APPAT AS 'Ap. Paterno', APMAT AS 'Ap. Materno', NOMBS AS 'Nombres' FROM POSTULANTES", GetConnection());
+                    break;
+                case 1: 
+                    adapter = new SqlDataAdapter(
+                    "SELECT CODPOST AS 'Código', APPAT AS 'Ap. Paterno', APMAT AS 'Ap. Materno', NOMBS AS 'Nombres' FROM POSTULANTES WHERE CODPOST = '" + buscar + "' OR APPAT = '" + buscar + "' OR APMAT = '" + buscar + "'"
+                    , GetConnection());
+                    break;
+                case 2:
+                    adapter = new SqlDataAdapter(
+                    "SELECT p.CODPOST AS 'Código', p.APPAT AS 'Ap. Paterno', p.APMAT AS 'Ap. Materno', p.NOMBS AS 'Nombres' FROM POSTULANTES p INNER JOIN AREA a ON p.CODPOST = a.CODPOST_FK INNER JOIN FACULTAD f ON p.CODPOST = f.CODPOST_FK WHERE a.CODAREA = '" + buscar + "' OR f.CODFACU = '" + buscar + "'"
+                    , GetConnection());
+                    break;
+                default:
+                    adapter = new SqlDataAdapter("SELECT * FROM POSTULANTES",GetConnection());
+                    break;
+            }
+            return adapter;
+        }
     }
 }
