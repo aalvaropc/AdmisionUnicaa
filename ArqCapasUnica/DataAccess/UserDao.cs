@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Common.Cache;
+using System.Xml.Linq;
 
 namespace DataAccess
 {
@@ -66,6 +67,33 @@ namespace DataAccess
                     }
                 }
             }
+        }
+
+        public void generate(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuestas, string condicion, int puntaje)
+        {
+            ////Console.WriteLine("hola" + apePaterno);
+            ////Console.WriteLine("holaaa");
+            Console.WriteLine($"Insert into Postulante values('{idPostulante.ToString()}', '{nombre.ToString()}', '{apePaterno.ToString()}', '{apeMaterno.ToString()}', {especialidad.ToString()}, '{respuestas.ToString()}','{condicion}', {puntaje.ToString()}, {UserLoginCache.IdUser})");
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    //try
+                    //{
+                    command.Connection = connection;
+                    command.CommandText = $"Insert into Postulante values('{idPostulante.ToString()}', '{nombre.ToString()}', '{apePaterno.ToString()}', '{apeMaterno.ToString()}', {especialidad.ToString()}, '{respuestas.ToString()}','{condicion}', {puntaje.ToString()}, {UserLoginCache.IdUser})";
+                    command.CommandType = CommandType.Text;
+                    command.ExecuteNonQuery();
+                    //}catch(Exception ex)
+                    //{
+                    //    Console.WriteLine("ERROR: " + ex);
+                    //}
+
+                }
+            }
+
+
         }
 
     }
