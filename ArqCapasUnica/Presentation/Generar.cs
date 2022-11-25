@@ -112,7 +112,7 @@ namespace Presentation
                 }
                 //MessageBox.Show(consulta.ToString());
                 reader.Close();
-                MessageBox.Show("largo: " + resp.Length.ToString());
+                //MessageBox.Show("largo: " + resp.Length.ToString());
 
                 for(int j=0; j<resp.Length; j++)
                 {
