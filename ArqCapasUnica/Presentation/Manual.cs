@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.Win32;
 
 namespace Presentation
 {
@@ -18,6 +19,17 @@ namespace Presentation
             InitializeComponent();
         }
         SqlConnection connection = new SqlConnection("server=LAPTOP-8LNIGLG0 ; database=prueba ; integrated security = true");
+        Random r = new Random();
+
+
+         //List<System.Windows.Forms.ComboBox> lista = new List<System.Windows.Forms.ComboBox>() { cb_1, cb_2, cb_3, cb_4, cb_5, cb_6, cb_7, cb_8, cb_9,
+         //       cb_10, cb_11, cb_12, cb_13, cb_14, cb_15, cb_16, cb_17, cb_18, cb_19, cb_20, cb_21, cb_22, cb_23, cb_24, cb_25, cb_26, cb_27, cb_28, cb_29,
+         //       cb_30, cb_31, cb_32, cb_33, cb_34, cb_35, cb_36, cb_37, cb_38, cb_39, cb_40, cb_41, cb_42, cb_43, cb_44, cb_45, cb_46, cb_47, cb_48, cb_49,
+         //       cb_50, cb_51, cb_52, cb_53, cb_54, cb_55, cb_56, cb_57, cb_58, cb_59, cb_60, cb_61, cb_62, cb_63, cb_64, cb_65, cb_66, cb_67, cb_68, cb_69,
+         //       cb_70, cb_71, cb_72, cb_73, cb_74, cb_75, cb_76, cb_77, cb_78, cb_79, cb_80, cb_81, cb_82, cb_83, cb_84, cb_85, cb_86, cb_87, cb_88, cb_89,
+         //       cb_90, cb_91, cb_92, cb_93, cb_94, cb_95, cb_96, cb_97, cb_98, cb_99, cb_100};
+       
+
 
         private void Manual_Load(object sender, EventArgs e)
         {
@@ -141,7 +153,7 @@ namespace Presentation
 
         private void btnRandom_Click(object sender, EventArgs e)
         {
-            Random r = new Random();
+
             List<System.Windows.Forms.ComboBox> lista = new List<System.Windows.Forms.ComboBox>() { cb_1, cb_2, cb_3, cb_4, cb_5, cb_6, cb_7, cb_8, cb_9,
                 cb_10, cb_11, cb_12, cb_13, cb_14, cb_15, cb_16, cb_17, cb_18, cb_19, cb_20, cb_21, cb_22, cb_23, cb_24, cb_25, cb_26, cb_27, cb_28, cb_29,
                 cb_30, cb_31, cb_32, cb_33, cb_34, cb_35, cb_36, cb_37, cb_38, cb_39, cb_40, cb_41, cb_42, cb_43, cb_44, cb_45, cb_46, cb_47, cb_48, cb_49,
@@ -151,16 +163,94 @@ namespace Presentation
 
             for (int i=0; i<100; i++)
             {
-                
                 lista[i].SelectedIndex = r.Next(0,6);
-                
             }
 
         }
-
+        string tema = "", consulta="";
+        int respBlanco = 0, respCorrecta = 0, respIncorrecta = 0;
+        double puntaje = 0;
         private void btnCalificar_Click(object sender, EventArgs e)
         {
 
+            List<System.Windows.Forms.ComboBox> lista = new List<System.Windows.Forms.ComboBox>() { cb_1, cb_2, cb_3, cb_4, cb_5, cb_6, cb_7, cb_8, cb_9,
+                cb_10, cb_11, cb_12, cb_13, cb_14, cb_15, cb_16, cb_17, cb_18, cb_19, cb_20, cb_21, cb_22, cb_23, cb_24, cb_25, cb_26, cb_27, cb_28, cb_29,
+                cb_30, cb_31, cb_32, cb_33, cb_34, cb_35, cb_36, cb_37, cb_38, cb_39, cb_40, cb_41, cb_42, cb_43, cb_44, cb_45, cb_46, cb_47, cb_48, cb_49,
+                cb_50, cb_51, cb_52, cb_53, cb_54, cb_55, cb_56, cb_57, cb_58, cb_59, cb_60, cb_61, cb_62, cb_63, cb_64, cb_65, cb_66, cb_67, cb_68, cb_69,
+                cb_70, cb_71, cb_72, cb_73, cb_74, cb_75, cb_76, cb_77, cb_78, cb_79, cb_80, cb_81, cb_82, cb_83, cb_84, cb_85, cb_86, cb_87, cb_88, cb_89,
+                cb_90, cb_91, cb_92, cb_93, cb_94, cb_95, cb_96, cb_97, cb_98, cb_99, cb_100};
+
+            //OBTENGO EL AREA
+            connection.Open();
+            SqlCommand consultaSQL3 = new SqlCommand($" SELECT AREA FROM Facultad  WHERE IdFacultad = {cbxFacultad.SelectedIndex + 1}", connection);
+            SqlDataReader reader3 = consultaSQL3.ExecuteReader();
+            while (reader3.Read())
+            {
+                nameArea = reader3.GetInt32(0);
+            }
+            reader3.Close();
+            connection.Close();
+
+            switch (nameArea)
+            {
+                case 1: 
+                    switch (r.Next(0, 3)){
+                        case 0: tema = "F"; break;
+                        case 1: tema = "G"; break;
+                        case 2: tema = "H"; break;
+                    }; break;
+                case 2:
+                    switch (r.Next(0, 3))
+                    {
+                        case 0: tema = "I"; break;
+                        case 1: tema = "J"; break;
+                        case 2: tema = "K"; break;
+                    }; break;
+                case 3:
+                    switch (r.Next(0, 3))
+                    {
+                        case 0: tema = "L"; break;
+                        case 1: tema = "M"; break;
+                        case 2: tema = "N"; break;
+                    }; break;
+            }
+
+
+            connection.Open();
+            SqlCommand consultaSQL = new SqlCommand($"SELECT SOLUCION FROM SOLUCIONARIO WHERE TEMA = '{tema}'", connection);
+            SqlDataReader reader = consultaSQL.ExecuteReader();
+            while (reader.Read())
+            {
+                consulta = reader.GetString(0);
+            }
+            reader.Close();
+            for (int j = 0; j < 100; j++)
+            {
+
+                if (lista[j].Text == "-")
+                {
+                    puntaje += 1.25;
+                    respBlanco++;
+                }
+                else
+                {
+                    if (lista[j].Text == consulta[j].ToString())
+                    {
+                        puntaje += 20;
+                        respCorrecta++;
+                    }
+                    else
+                    {
+                        puntaje -= 1.25;
+                        respIncorrecta++;
+                    }
+                }
+            }
+
+            txtCorrecto.Text = respCorrecta.ToString();
+            txtIncorrecto.Text = respIncorrecta.ToString();
+            txtBlanco.Text = respBlanco.ToString();
+            txtNota.Text = puntaje.ToString();
         }
     }
 }

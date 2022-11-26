@@ -18,6 +18,7 @@ namespace Presentation
             InitializeComponent();
             //TIEMPO JAJAJA DE RELLENO
             timer1.Enabled = true;
+
         }
 
         private Form activeform;
@@ -88,6 +89,7 @@ namespace Presentation
         private void Home_Load(object sender, EventArgs e)
         {
             LoadUserData();
+            OpenChildForm(new Postulantes(), sender);
 
             //Sirve para actualizar el nombre del usuario del home una vez editado
             //edit.ResetProfile += new Edit.ResetNameProfile(ChangeName);

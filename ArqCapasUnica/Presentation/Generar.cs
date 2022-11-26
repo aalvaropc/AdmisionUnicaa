@@ -102,17 +102,14 @@ namespace Presentation
 
 
                 connection.Open();
-
                 SqlCommand consultaSQL = new SqlCommand($"SELECT SOLUCION FROM SOLUCIONARIO WHERE TEMA = '{tema}'", connection);
-
                 SqlDataReader reader = consultaSQL.ExecuteReader();
                 while (reader.Read())
                 {
                     consulta = reader.GetString(0);
                 }
-                //MessageBox.Show(consulta.ToString());
                 reader.Close();
-                //MessageBox.Show("largo: " + resp.Length.ToString());
+                
 
                 for(int j=0; j<resp.Length; j++)
                 {
