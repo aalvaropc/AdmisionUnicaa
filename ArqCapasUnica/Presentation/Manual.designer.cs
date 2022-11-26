@@ -2914,6 +2914,7 @@
             this.btnCalificar.TabIndex = 5;
             this.btnCalificar.Text = "CALIFICAR";
             this.btnCalificar.UseVisualStyleBackColor = true;
+            this.btnCalificar.Click += new System.EventHandler(this.btnCalificar_Click);
             // 
             // btnGuardar
             // 

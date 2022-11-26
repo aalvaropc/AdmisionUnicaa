@@ -151,9 +151,15 @@ namespace Presentation
 
             for (int i=0; i<100; i++)
             {
+                
                 lista[i].SelectedIndex = r.Next(0,6);
                 
             }
+
+        }
+
+        private void btnCalificar_Click(object sender, EventArgs e)
+        {
 
         }
     }
