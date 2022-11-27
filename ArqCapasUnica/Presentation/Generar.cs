@@ -163,21 +163,21 @@ namespace Presentation
                 {
 
                     PostulanteModel postulante = new PostulanteModel();
-                    postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp, "INGRESO", 200000000 + codigo, idsol);
+                    postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp, "NO INGRESO", 200000000 + codigo, idsol);
                 }
                 else
                 {
                     if (i >= almacenado + 1 && i <= cantidadPos + almacenado)
                     {
                         PostulanteModel postulante = new PostulanteModel();
-                        postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp, "INGRESO", 200000000 + codigo, idsol);
+                        postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp, "NO INGRESO", 200000000 + codigo, idsol);
                     }
                 }
                 resp = ""; //resetea las respuestas generadas
                 respIncorrecta = 0;
                 respCorrecta = 0;
                 respBlanco = 0;
-
+                puntaje = 0;
             }
             sr.Close();
             //MessageBox.Show(gIdPostulante);
@@ -195,16 +195,6 @@ namespace Presentation
             {
                 dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             }
-            //dataGridView1.Columns[0].Width = 70;
-            //dataGridView1.Columns[1].Width = 115;
-            //dataGridView1.Columns[2].Width = 80;
-            //dataGridView1.Columns[3].Width = 80;
-            //dataGridView1.Columns[4].Width = 70;
-            //dataGridView1.Columns[5].Width = 700;
-            //dataGridView1.Columns[6].Width = 80;
-            //dataGridView1.Columns[7].Width = 68;
-            //dataGridView1.Columns[8].Width = 50;
-            //dataGridView1.Columns[9].Width = 45;
             y++;
             gIdPostulante = "";
 

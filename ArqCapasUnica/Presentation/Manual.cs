@@ -193,7 +193,7 @@ namespace Presentation
 
             //GENERANDO POSTULANTE
             PostulanteModel postulante = new PostulanteModel();
-            postulante.generate(codigo, nombre, apePat, apeMat, codEspecialidad, respuesta, "INGRESO", 200000000 + Convert.ToInt32(codigo), codSol);
+            postulante.generate(codigo, nombre, apePat, apeMat, codEspecialidad, respuesta, "NO INGRESO", 200000000 + Convert.ToInt32(codigo), codSol);
 
             //resetear las repuestas
             resp = "";

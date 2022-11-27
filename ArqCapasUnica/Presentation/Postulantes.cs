@@ -255,8 +255,8 @@ namespace Presentation
 
                 dataGridView2.Columns.Clear();
                 dataGridView2.Columns.Add("npregunta", "PREGUNTA");
-                dataGridView2.Columns.Add("postulante", "CODIGO");
-                dataGridView2.Columns.Add("machote", $"AREA");
+                dataGridView2.Columns.Add("postulante", "RESP");
+                dataGridView2.Columns.Add("machote", $"SOL");
                 dataGridView2.Rows.Add(100);
 
                 dataGridView2.Columns[0].Width = 73;

@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Common.Cache;
 using System.Xml.Linq;
+using System.Security.Cryptography;
 
 namespace DataAccess
 {
@@ -68,10 +69,10 @@ namespace DataAccess
                 }
             }
         }
-        //int[]
+        int Idespecialidad = 0;
+        string[] vacantes = { "12", "15", "20", "20", "18", "25", "22", "24", "30", "15", "18", "25", "22", "24", "30", "22", "24", "30", "15", "18", "22", "24", "30", "22", "24" , "18", "22", "24", "30", "22" , "30", "22", "24", "30", "15", "18", "22", "24", "30", "22"};
         public void generate(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuestas, string condicion, int puntaje, int tema)
         {
-            Console.WriteLine($"Insert into Postulante values('{idPostulante.ToString()}', '{nombre.ToString()}', '{apePaterno.ToString()}', '{apeMaterno.ToString()}', {especialidad.ToString()}, '{respuestas.ToString()}','{condicion}', {puntaje.ToString()}, {UserLoginCache.IdUser}, {tema.ToString()})");
             using (var connection = GetConnection())
             {
                 connection.Open();
@@ -79,6 +80,27 @@ namespace DataAccess
                 {
                     command.Connection = connection;
                     command.CommandText = $"Insert into Postulante values('{idPostulante.ToString()}', '{nombre.ToString()}', '{apePaterno.ToString()}', '{apeMaterno.ToString()}', {especialidad.ToString()}, '{respuestas.ToString()}','{condicion}', {puntaje.ToString()}, {UserLoginCache.IdUser}, {tema.ToString()})";
+                    command.CommandType = CommandType.Text;
+                    command.ExecuteNonQuery();
+                }
+                //using (var command = new SqlCommand())
+                //{
+                //    command.Connection = connection;
+                //    command.CommandText = $"select IdSolucionario from Solucionario where Tema = '{tema.ToString()}";
+                //    command.CommandType = CommandType.Text;
+                //    SqlDataReader reader = command.ExecuteReader();
+                //    if (reader.HasRows)
+                //    {
+                //        while (reader.Read())
+                //        {
+                //            Idespecialidad = reader.GetInt32(0);
+                //        }
+                //    }
+                //}
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = $"update Postulante set Condicion = 'INGRESO' where idPostulante IN(SELECT TOP {vacantes[tema-1]} IdPostulante FROM Postulante where Especialidad = {tema.ToString()} order by Condicion desc)";
                     command.CommandType = CommandType.Text;
                     command.ExecuteNonQuery();
                 }
