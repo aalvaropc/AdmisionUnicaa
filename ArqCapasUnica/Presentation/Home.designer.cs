@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.MVertical = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,7 +43,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel_Contenido = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.MVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnDesplazar)).BeginInit();
             this.B_Titulo.SuspendLayout();
@@ -266,7 +265,6 @@
             this.Controls.Add(this.MVertical);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Home";
-            this.RightToLeftLayout = true;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.MVertical.ResumeLayout(false);
