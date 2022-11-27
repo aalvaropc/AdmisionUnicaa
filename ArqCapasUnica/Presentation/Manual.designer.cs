@@ -2921,7 +2921,7 @@
             // 
             this.btnCalificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.btnCalificar.ForeColor = System.Drawing.Color.White;
-            this.btnCalificar.Location = new System.Drawing.Point(835, 523);
+            this.btnCalificar.Location = new System.Drawing.Point(837, 513);
             this.btnCalificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalificar.Name = "btnCalificar";
             this.btnCalificar.Size = new System.Drawing.Size(112, 46);
@@ -2934,7 +2934,7 @@
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(992, 523);
+            this.btnGuardar.Location = new System.Drawing.Point(992, 511);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(112, 46);
