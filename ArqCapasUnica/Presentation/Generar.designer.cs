@@ -37,12 +37,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.AntiqueWhite;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(52, 95);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(657, 294);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1083, 585);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -56,14 +61,14 @@
             // 
             // txtCantAlumnos
             // 
-            this.txtCantAlumnos.Location = new System.Drawing.Point(249, 48);
+            this.txtCantAlumnos.Location = new System.Drawing.Point(231, 48);
             this.txtCantAlumnos.Name = "txtCantAlumnos";
             this.txtCantAlumnos.Size = new System.Drawing.Size(204, 22);
             this.txtCantAlumnos.TabIndex = 2;
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(508, 41);
+            this.btnGenerar.Location = new System.Drawing.Point(468, 41);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(143, 37);
             this.btnGenerar.TabIndex = 3;
@@ -75,7 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1173, 713);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.txtCantAlumnos);
             this.Controls.Add(this.label1);

@@ -111,9 +111,9 @@ namespace Presentation
             //{
             //    dataGridView1.Rows[i].Cells[4].Value = i < 20 ? "INGRESO" : "NO INGRESO";
             //}
-            dataGridView1.Columns[0].Width = 65;
-            dataGridView1.Columns[1].Width = 220;
-            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[0].Width = 60;
+            dataGridView1.Columns[1].Width = 210;
+            dataGridView1.Columns[2].Width = 220;
             dataGridView1.Columns[3].Width = 70;
             dataGridView1.Columns[4].Width = 65;
         }

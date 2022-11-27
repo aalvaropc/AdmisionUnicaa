@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Microsoft.Win32;
+using Domain;
 
 namespace Presentation
 {
@@ -20,16 +21,6 @@ namespace Presentation
         }
         SqlConnection connection = new SqlConnection("server=LAPTOP-8LNIGLG0 ; database=prueba ; integrated security = true");
         Random r = new Random();
-
-
-         //List<System.Windows.Forms.ComboBox> lista = new List<System.Windows.Forms.ComboBox>() { cb_1, cb_2, cb_3, cb_4, cb_5, cb_6, cb_7, cb_8, cb_9,
-         //       cb_10, cb_11, cb_12, cb_13, cb_14, cb_15, cb_16, cb_17, cb_18, cb_19, cb_20, cb_21, cb_22, cb_23, cb_24, cb_25, cb_26, cb_27, cb_28, cb_29,
-         //       cb_30, cb_31, cb_32, cb_33, cb_34, cb_35, cb_36, cb_37, cb_38, cb_39, cb_40, cb_41, cb_42, cb_43, cb_44, cb_45, cb_46, cb_47, cb_48, cb_49,
-         //       cb_50, cb_51, cb_52, cb_53, cb_54, cb_55, cb_56, cb_57, cb_58, cb_59, cb_60, cb_61, cb_62, cb_63, cb_64, cb_65, cb_66, cb_67, cb_68, cb_69,
-         //       cb_70, cb_71, cb_72, cb_73, cb_74, cb_75, cb_76, cb_77, cb_78, cb_79, cb_80, cb_81, cb_82, cb_83, cb_84, cb_85, cb_86, cb_87, cb_88, cb_89,
-         //       cb_90, cb_91, cb_92, cb_93, cb_94, cb_95, cb_96, cb_97, cb_98, cb_99, cb_100};
-       
-
 
         private void Manual_Load(object sender, EventArgs e)
         {
@@ -43,12 +34,12 @@ namespace Presentation
 
             for (int i = 0; i < 100; i++)
             {
-                lista[i].Items.Insert(0, "A");
-                lista[i].Items.Insert(1, "B");
-                lista[i].Items.Insert(2, "C");
-                lista[i].Items.Insert(3, "D");
-                lista[i].Items.Insert(4, "E");
-                lista[i].Items.Insert(5, "-");
+                lista[i].Items.Add("A");
+                lista[i].Items.Add("B");
+                lista[i].Items.Add("C");
+                lista[i].Items.Add("D");
+                lista[i].Items.Add("E");
+                lista[i].Items.Add("-");
             }
             //cargarOp();
             string facultades = "";
@@ -86,8 +77,6 @@ namespace Presentation
 
             cbxEspecialidad.Enabled = true;
 
-
-            //TENGO EL NUMERO DE ESPECIALIDADES SELECCIONADAS EN LA FACULTAD
             connection.Open();
             SqlCommand consultaSQL2 = new SqlCommand($"SELECT count(NombreEspecialidad) FROM ESPECIALIDAD WHERE FACULTAD = {cbxFacultad.SelectedIndex + 1}", connection);
             //MessageBox.Show((cbxFacultad.SelectedIndex + 1).ToString());
@@ -168,8 +157,14 @@ namespace Presentation
 
         }
         string tema = "", consulta="";
+        //string gtema = "";
+        //int gpostema = -1;
         int respBlanco = 0, respCorrecta = 0, respIncorrecta = 0;
+
+
+
         double puntaje = 0;
+        string resp = "";
         private void btnCalificar_Click(object sender, EventArgs e)
         {
 
@@ -195,26 +190,28 @@ namespace Presentation
             {
                 case 1: 
                     switch (r.Next(0, 3)){
-                        case 0: tema = "F"; break;
-                        case 1: tema = "G"; break;
-                        case 2: tema = "H"; break;
+                        case 0: tema += "F"; break;
+                        case 1: tema += "G"; break;
+                        case 2: tema += "H"; break;
                     }; break;
                 case 2:
                     switch (r.Next(0, 3))
                     {
-                        case 0: tema = "I"; break;
-                        case 1: tema = "J"; break;
-                        case 2: tema = "K"; break;
+                        case 0: tema += "I"; break;
+                        case 1: tema += "J"; break;
+                        case 2: tema += "K"; break;
                     }; break;
                 case 3:
                     switch (r.Next(0, 3))
                     {
-                        case 0: tema = "L"; break;
-                        case 1: tema = "M"; break;
-                        case 2: tema = "N"; break;
+                        case 0: tema += "L"; break;
+                        case 1: tema += "M"; break;
+                        case 2: tema += "N"; break;
                     }; break;
             }
-
+            MessageBox.Show(tema.ToString());
+            //gtema += tema; //acumulo el tema
+            //gpostema++;
 
             connection.Open();
             SqlCommand consultaSQL = new SqlCommand($"SELECT SOLUCION FROM SOLUCIONARIO WHERE TEMA = '{tema}'", connection);
@@ -226,6 +223,7 @@ namespace Presentation
             reader.Close();
             for (int j = 0; j < 100; j++)
             {
+                resp += lista[j].SelectedItem.ToString(); 
 
                 if (lista[j].Text == "-")
                 {
@@ -246,11 +244,58 @@ namespace Presentation
                     }
                 }
             }
-
+            MessageBox.Show(resp);
             txtCorrecto.Text = respCorrecta.ToString();
             txtIncorrecto.Text = respIncorrecta.ToString();
             txtBlanco.Text = respBlanco.ToString();
             txtNota.Text = puntaje.ToString();
+        }
+
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            
+            string nombre = txtNombre.Text;
+            string apePat = txtApPaterno.Text;
+            string apeMat = txtApMaterno.Text;
+            string codigo = txtCodigo.Text;
+            string especialidad = cbxEspecialidad.SelectedItem.ToString();
+            string correcta = txtCorrecto.ToString();
+            string incorrecta = txtIncorrecto.ToString();
+            string blanco = txtBlanco.ToString();
+            string nota = txtNota.ToString();
+            //string tema = gtema[gpostema].ToString();
+            string temaPos = tema;
+            string respuesta = resp;
+
+
+
+            //select IdEspecialidad from Especialidad where NombreEspecialidad =''
+            String consultaSQL1 = $"select IdEspecialidad from Especialidad where NombreEspecialidad ='{especialidad}'";
+            SqlCommand connn = new SqlCommand(consultaSQL1, connection);
+            int codEspecialidad = Convert.ToInt32(connn.ExecuteScalar());
+
+            
+
+            String consultaSQL2 = $"select IdSolucionario from Solucionario where Tema = '{temaPos}';";
+            SqlCommand connn2 = new SqlCommand(consultaSQL2, connection);
+            int codSol = Convert.ToInt32(connn2.ExecuteScalar());
+
+
+            //MessageBox.Show(gtema[gpostema].ToString());
+            //INSERTAR PUNTAJE
+            MessageBox.Show($"INSERT INTO Puntaje VALUES (2{codigo}, {blanco}, {correcta}, {incorrecta}, {nota})");
+            SqlCommand comando = new SqlCommand($"INSERT INTO Puntaje VALUES (2{codigo}, {respBlanco}, {respCorrecta}, {respIncorrecta}, {(puntaje.ToString()).Replace(",", ".")})", connection);
+            comando.ExecuteNonQuery();
+
+            //GENERANDO POSTULANTE
+            PostulanteModel postulante = new PostulanteModel();
+            postulante.generate(codigo, nombre, apePat, apeMat, codEspecialidad, respuesta, "INGRESO", 200000000 + Convert.ToInt32(codigo), codSol);
+
+            //resetear las repuestas
+            resp = "";
+            tema = "";
         }
     }
 }

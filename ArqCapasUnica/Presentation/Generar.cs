@@ -28,6 +28,7 @@ namespace Presentation
         SqlConnection connection = new SqlConnection("server=LAPTOP-8LNIGLG0 ; database=prueba ; integrated security = true");
         private void Generar_Load(object sender, EventArgs e)
         {
+            
 
         }
         int almacenado = 0;
@@ -137,14 +138,14 @@ namespace Presentation
                         }
                     }
                 }
-                MessageBox.Show($"INSERT INTO Puntaje VALUES (2{codigo.ToString()}, {respBlanco.ToString()}, {respCorrecta.ToString()}, {respIncorrecta.ToString()}, {puntaje.ToString()})");
+                //MessageBox.Show($"INSERT INTO Puntaje VALUES (2{codigo.ToString()}, {respBlanco.ToString()}, {respCorrecta.ToString()}, {respIncorrecta.ToString()}, {puntaje.ToString()})");
                 SqlCommand comando = new SqlCommand($"INSERT INTO Puntaje VALUES (2{codigo.ToString()}, {respBlanco.ToString()}, {respCorrecta.ToString()}, {respIncorrecta.ToString()}, {(puntaje.ToString()).Replace(",", ".")})", connection);
                 comando.ExecuteNonQuery();
                 
 
                 connection.Close();
                 //----------------
-                MessageBox.Show($"{codigo.ToString()}, {nombre}, {apPaterno}, {apMaterno}, {especialidad}, {resp},INGRESO, {200000000 + codigo}");
+                //MessageBox.Show($"{codigo.ToString()}, {nombre}, {apPaterno}, {apMaterno}, {especialidad}, {resp},INGRESO, {200000000 + codigo}");
 
                 if (almacenado == 0)
                 {
@@ -178,6 +179,17 @@ namespace Presentation
 
             
             almacenado += cantidadPos;
+
+            dataGridView1.Columns[0].Width = 70;
+            dataGridView1.Columns[1].Width = 115;
+            dataGridView1.Columns[2].Width = 80;
+            dataGridView1.Columns[3].Width = 80;
+            dataGridView1.Columns[4].Width = 70;
+            dataGridView1.Columns[5].Width = 700;
+            dataGridView1.Columns[6].Width = 80;
+            dataGridView1.Columns[7].Width = 68;
+            dataGridView1.Columns[8].Width = 50;
+            dataGridView1.Columns[9].Width = 45;
 
         }
 
