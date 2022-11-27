@@ -288,6 +288,7 @@
             // 
             // groupbox_dato_postulante
             // 
+            this.groupbox_dato_postulante.BackColor = System.Drawing.Color.AntiqueWhite;
             this.groupbox_dato_postulante.Controls.Add(this.cbxEspecialidad);
             this.groupbox_dato_postulante.Controls.Add(this.cbxFacultad);
             this.groupbox_dato_postulante.Controls.Add(this.lbl_especialidad);
@@ -301,6 +302,7 @@
             this.groupbox_dato_postulante.Controls.Add(this.txtCodigo);
             this.groupbox_dato_postulante.Controls.Add(this.lbl_codigo1);
             this.groupbox_dato_postulante.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupbox_dato_postulante.ForeColor = System.Drawing.Color.Chocolate;
             this.groupbox_dato_postulante.Location = new System.Drawing.Point(17, 2);
             this.groupbox_dato_postulante.Margin = new System.Windows.Forms.Padding(4);
             this.groupbox_dato_postulante.Name = "groupbox_dato_postulante";
@@ -357,6 +359,7 @@
             // 
             // txtApMaterno
             // 
+            this.txtApMaterno.BackColor = System.Drawing.Color.MistyRose;
             this.txtApMaterno.Location = new System.Drawing.Point(129, 201);
             this.txtApMaterno.Margin = new System.Windows.Forms.Padding(4);
             this.txtApMaterno.Name = "txtApMaterno";
@@ -375,6 +378,7 @@
             // 
             // txtApPaterno
             // 
+            this.txtApPaterno.BackColor = System.Drawing.Color.MistyRose;
             this.txtApPaterno.Location = new System.Drawing.Point(129, 145);
             this.txtApPaterno.Margin = new System.Windows.Forms.Padding(4);
             this.txtApPaterno.Name = "txtApPaterno";
@@ -393,6 +397,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.MistyRose;
             this.txtNombre.Location = new System.Drawing.Point(129, 90);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
@@ -411,6 +416,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.BackColor = System.Drawing.Color.MistyRose;
             this.txtCodigo.Location = new System.Drawing.Point(129, 35);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.Name = "txtCodigo";
@@ -429,6 +435,7 @@
             // 
             // groupbox_detalle_puntaje
             // 
+            this.groupbox_detalle_puntaje.BackColor = System.Drawing.Color.AntiqueWhite;
             this.groupbox_detalle_puntaje.Controls.Add(this.txtNota);
             this.groupbox_detalle_puntaje.Controls.Add(this.txtCorrecto);
             this.groupbox_detalle_puntaje.Controls.Add(this.lbl_nota);
@@ -437,17 +444,19 @@
             this.groupbox_detalle_puntaje.Controls.Add(this.lbl_incorrecta);
             this.groupbox_detalle_puntaje.Controls.Add(this.lbl_blanco);
             this.groupbox_detalle_puntaje.Controls.Add(this.txtIncorrecto);
+            this.groupbox_detalle_puntaje.ForeColor = System.Drawing.Color.Chocolate;
             this.groupbox_detalle_puntaje.Location = new System.Drawing.Point(16, 416);
             this.groupbox_detalle_puntaje.Margin = new System.Windows.Forms.Padding(4);
             this.groupbox_detalle_puntaje.Name = "groupbox_detalle_puntaje";
             this.groupbox_detalle_puntaje.Padding = new System.Windows.Forms.Padding(4);
-            this.groupbox_detalle_puntaje.Size = new System.Drawing.Size(323, 268);
+            this.groupbox_detalle_puntaje.Size = new System.Drawing.Size(323, 274);
             this.groupbox_detalle_puntaje.TabIndex = 1;
             this.groupbox_detalle_puntaje.TabStop = false;
             this.groupbox_detalle_puntaje.Text = "Detalle de Puntaje";
             // 
             // txtNota
             // 
+            this.txtNota.BackColor = System.Drawing.Color.MistyRose;
             this.txtNota.Enabled = false;
             this.txtNota.Location = new System.Drawing.Point(115, 218);
             this.txtNota.Margin = new System.Windows.Forms.Padding(4);
@@ -457,6 +466,7 @@
             // 
             // txtCorrecto
             // 
+            this.txtCorrecto.BackColor = System.Drawing.Color.MistyRose;
             this.txtCorrecto.Enabled = false;
             this.txtCorrecto.Location = new System.Drawing.Point(115, 37);
             this.txtCorrecto.Margin = new System.Windows.Forms.Padding(4);
@@ -486,6 +496,7 @@
             // 
             // txtBlanco
             // 
+            this.txtBlanco.BackColor = System.Drawing.Color.MistyRose;
             this.txtBlanco.Enabled = false;
             this.txtBlanco.Location = new System.Drawing.Point(115, 158);
             this.txtBlanco.Margin = new System.Windows.Forms.Padding(4);
@@ -515,6 +526,7 @@
             // 
             // txtIncorrecto
             // 
+            this.txtIncorrecto.BackColor = System.Drawing.Color.MistyRose;
             this.txtIncorrecto.Enabled = false;
             this.txtIncorrecto.Location = new System.Drawing.Point(115, 95);
             this.txtIncorrecto.Margin = new System.Windows.Forms.Padding(4);
@@ -524,6 +536,7 @@
             // 
             // groupbox_tarjeta_omr
             // 
+            this.groupbox_tarjeta_omr.BackColor = System.Drawing.Color.AntiqueWhite;
             this.groupbox_tarjeta_omr.Controls.Add(this.label11);
             this.groupbox_tarjeta_omr.Controls.Add(this.cb_100);
             this.groupbox_tarjeta_omr.Controls.Add(this.label19);
@@ -724,6 +737,7 @@
             this.groupbox_tarjeta_omr.Controls.Add(this.cb_21);
             this.groupbox_tarjeta_omr.Controls.Add(this.lbl_1);
             this.groupbox_tarjeta_omr.Controls.Add(this.cb_1);
+            this.groupbox_tarjeta_omr.ForeColor = System.Drawing.Color.Chocolate;
             this.groupbox_tarjeta_omr.Location = new System.Drawing.Point(347, 2);
             this.groupbox_tarjeta_omr.Margin = new System.Windows.Forms.Padding(4);
             this.groupbox_tarjeta_omr.Name = "groupbox_tarjeta_omr";
@@ -2438,12 +2452,6 @@
             // cb_43
             // 
             this.cb_43.FormattingEnabled = true;
-            this.cb_43.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "-"});
             this.cb_43.Location = new System.Drawing.Point(224, 89);
             this.cb_43.Margin = new System.Windows.Forms.Padding(4);
             this.cb_43.Name = "cb_43";
@@ -2643,9 +2651,11 @@
             // groupbox_cursos
             // 
             this.groupbox_cursos.AutoSize = true;
+            this.groupbox_cursos.BackColor = System.Drawing.Color.AntiqueWhite;
             this.groupbox_cursos.Controls.Add(this.pnl_cursitos);
             this.groupbox_cursos.Controls.Add(this.lbl_cant_preguntas);
             this.groupbox_cursos.Controls.Add(this.lbl_n_cursitos);
+            this.groupbox_cursos.ForeColor = System.Drawing.Color.Chocolate;
             this.groupbox_cursos.Location = new System.Drawing.Point(820, 2);
             this.groupbox_cursos.Margin = new System.Windows.Forms.Padding(4);
             this.groupbox_cursos.Name = "groupbox_cursos";
@@ -2896,50 +2906,59 @@
             // 
             // btnRandom
             // 
+            this.btnRandom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
+            this.btnRandom.ForeColor = System.Drawing.Color.White;
             this.btnRandom.Location = new System.Drawing.Point(837, 600);
             this.btnRandom.Margin = new System.Windows.Forms.Padding(4);
             this.btnRandom.Name = "btnRandom";
             this.btnRandom.Size = new System.Drawing.Size(112, 46);
             this.btnRandom.TabIndex = 4;
             this.btnRandom.Text = "RANDOM";
-            this.btnRandom.UseVisualStyleBackColor = true;
+            this.btnRandom.UseVisualStyleBackColor = false;
             this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
             // btnCalificar
             // 
+            this.btnCalificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
+            this.btnCalificar.ForeColor = System.Drawing.Color.White;
             this.btnCalificar.Location = new System.Drawing.Point(835, 523);
             this.btnCalificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalificar.Name = "btnCalificar";
             this.btnCalificar.Size = new System.Drawing.Size(112, 46);
             this.btnCalificar.TabIndex = 5;
             this.btnCalificar.Text = "CALIFICAR";
-            this.btnCalificar.UseVisualStyleBackColor = true;
+            this.btnCalificar.UseVisualStyleBackColor = false;
             this.btnCalificar.Click += new System.EventHandler(this.btnCalificar_Click);
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Location = new System.Drawing.Point(992, 523);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(112, 46);
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "GUARDAR";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             // 
             // btnLimpiar
             // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
             this.btnLimpiar.Location = new System.Drawing.Point(992, 600);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(112, 46);
             this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "LIMPIAR";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
             // Manual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1165, 711);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGuardar);

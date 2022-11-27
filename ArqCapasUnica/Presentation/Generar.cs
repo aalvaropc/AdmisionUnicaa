@@ -29,12 +29,13 @@ namespace Presentation
         private void Generar_Load(object sender, EventArgs e)
         {
 
+
         }
         int almacenado = 0;
         string consulta = "";
         string tema = "";
         int especialidad = 1;
-        
+
         int idsol = 0;
         private void btnGenerar_Click(object sender, EventArgs e)
         {
@@ -50,7 +51,7 @@ namespace Presentation
             //_----------------
             Random r = new Random();
             string resp = "";
-            string[] op = {"A","B","C","D","E","-"};
+            string[] op = { "A", "B", "C", "D", "E", "-" };
             double puntaje = 0;
             for (int i = 1; i <= cantidadPos + almacenado; i++)
             {
@@ -67,7 +68,7 @@ namespace Presentation
                 apMaterno = fullName.Split(' ')[1];
 
                 //respuestas
-                for(int y = 1; y <= 100; y++)
+                for (int y = 1; y <= 100; y++)
                 {
                     resp += op[r.Next(0, 6)];
                 }
@@ -75,15 +76,16 @@ namespace Presentation
 
                 especialidad = r.Next(1, 41);
 
-                if(especialidad>=1 && especialidad <= 8)
+                if (especialidad >= 1 && especialidad <= 8)
                 {
-                    switch (r.Next(0, 3)){
+                    switch (r.Next(0, 3))
+                    {
                         case 0: tema = "F"; idsol = 1; break;
                         case 1: tema = "G"; idsol = 2; break;
                         case 2: tema = "H"; idsol = 3; break;
                     }
                 }
-                
+
                 if (especialidad >= 9 && especialidad <= 23)
                 {
                     switch (r.Next(0, 3))
@@ -93,7 +95,7 @@ namespace Presentation
                         case 2: tema = "K"; idsol = 6; break;
                     }
                 }
-                
+
                 if (especialidad >= 24 && especialidad <= 40)
                 {
                     switch (r.Next(0, 3))
@@ -113,11 +115,11 @@ namespace Presentation
                     consulta = reader.GetString(0);
                 }
                 reader.Close();
-                
 
-                for(int j=0; j<100; j++)
+
+                for (int j = 0; j < 100; j++)
                 {
-                    
+
                     if (resp[j] == '-')
                     {
                         puntaje += 1.25;
@@ -137,20 +139,20 @@ namespace Presentation
                         }
                     }
                 }
-                MessageBox.Show($"INSERT INTO Puntaje VALUES (2{codigo.ToString()}, {respBlanco.ToString()}, {respCorrecta.ToString()}, {respIncorrecta.ToString()}, {puntaje.ToString()})");
+                //MessageBox.Show($"INSERT INTO Puntaje VALUES (2{codigo.ToString()}, {respBlanco.ToString()}, {respCorrecta.ToString()}, {respIncorrecta.ToString()}, {puntaje.ToString()})");
                 SqlCommand comando = new SqlCommand($"INSERT INTO Puntaje VALUES (2{codigo.ToString()}, {respBlanco.ToString()}, {respCorrecta.ToString()}, {respIncorrecta.ToString()}, {(puntaje.ToString()).Replace(",", ".")})", connection);
                 comando.ExecuteNonQuery();
-                
+
 
                 connection.Close();
                 //----------------
-                MessageBox.Show($"{codigo.ToString()}, {nombre}, {apPaterno}, {apMaterno}, {especialidad}, {resp},INGRESO, {200000000 + codigo}");
+                //MessageBox.Show($"{codigo.ToString()}, {nombre}, {apPaterno}, {apMaterno}, {especialidad}, {resp},INGRESO, {200000000 + codigo}");
 
                 if (almacenado == 0)
                 {
-                    
+
                     PostulanteModel postulante = new PostulanteModel();
-                    postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp,"INGRESO", 200000000 + codigo, idsol);
+                    postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp, "INGRESO", 200000000 + codigo, idsol);
                 }
                 else
                 {
@@ -176,12 +178,23 @@ namespace Presentation
             dataGridView1.DataSource = dt;
             cn.Close();
 
-            
+
             almacenado += cantidadPos;
+
+            dataGridView1.Columns[0].Width = 70;
+            dataGridView1.Columns[1].Width = 115;
+            dataGridView1.Columns[2].Width = 80;
+            dataGridView1.Columns[3].Width = 80;
+            dataGridView1.Columns[4].Width = 70;
+            dataGridView1.Columns[5].Width = 700;
+            dataGridView1.Columns[6].Width = 80;
+            dataGridView1.Columns[7].Width = 68;
+            dataGridView1.Columns[8].Width = 50;
+            dataGridView1.Columns[9].Width = 45;
 
         }
 
-      
+
 
     }
 }

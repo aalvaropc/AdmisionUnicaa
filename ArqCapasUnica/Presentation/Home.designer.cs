@@ -66,7 +66,7 @@
             this.MVertical.Location = new System.Drawing.Point(0, 0);
             this.MVertical.Margin = new System.Windows.Forms.Padding(4);
             this.MVertical.Name = "MVertical";
-            this.MVertical.Size = new System.Drawing.Size(285, 789);
+            this.MVertical.Size = new System.Drawing.Size(285, 803);
             this.MVertical.TabIndex = 0;
             // 
             // label2
@@ -102,7 +102,7 @@
             this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 706);
+            this.button5.Location = new System.Drawing.Point(0, 720);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(285, 84);
@@ -249,7 +249,7 @@
             this.Panel_Contenido.Location = new System.Drawing.Point(285, 106);
             this.Panel_Contenido.Margin = new System.Windows.Forms.Padding(4);
             this.Panel_Contenido.Name = "Panel_Contenido";
-            this.Panel_Contenido.Size = new System.Drawing.Size(1160, 683);
+            this.Panel_Contenido.Size = new System.Drawing.Size(1160, 697);
             this.Panel_Contenido.TabIndex = 2;
             // 
             // timer1
@@ -260,7 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1445, 789);
+            this.ClientSize = new System.Drawing.Size(1445, 803);
             this.Controls.Add(this.Panel_Contenido);
             this.Controls.Add(this.B_Titulo);
             this.Controls.Add(this.MVertical);

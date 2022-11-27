@@ -33,10 +33,12 @@ namespace Presentation
             else
                 MVertical.Width = 214;
         }
-         private void OpenChildForm(Form childform, object btnsender) {
+        private void OpenChildForm(Form childform, object btnsender)
+        {
 
-            if(activeform != null){
-            ActiveForm.Activate();
+            if (activeform != null)
+            {
+                ActiveForm.Activate();
             }
             //ActivateButton(btnsender);
             activeform = childform;
@@ -46,7 +48,7 @@ namespace Presentation
             this.Panel_Contenido.Controls.Add(childform);
             this.Panel_Contenido.Tag = childform;
             childform.BringToFront();
-            childform.Show(); 
+            childform.Show();
             //lbltitle.Text = childform.Text;
         }
         private void LoadUserData()
@@ -72,7 +74,7 @@ namespace Presentation
             OpenChildForm(new Generar(), sender);
         }
 
- 
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             //EL TIEMPO DE RELLENO X2
@@ -87,7 +89,7 @@ namespace Presentation
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Estas seguro de cerrar la aplicacion?", "WARNING",
+            if (MessageBox.Show("Estas seguro de cerrar la aplicacion?", "WARNING",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 Application.Exit();
         }

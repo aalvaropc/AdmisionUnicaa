@@ -19,7 +19,7 @@ namespace Presentation
         }
         private void Postulantes_Load(object sender, EventArgs e)
         {
-            
+
             llenarDGV();
             cbxFiltro.Items.Insert(0, "CODIGO");
             cbxFiltro.Items.Insert(1, "NOMBRE");
@@ -53,13 +53,13 @@ namespace Presentation
         public void verSol(string codigo)
         {
             string respuesta = "", sol = "";
-           
+
             connection.Open();
             SqlCommand consultaSQL1 = new SqlCommand($"SELECT Respuestas FROM Postulante where IdPostulante = {codigo}", connection);
             SqlDataReader reader1 = consultaSQL1.ExecuteReader();
             while (reader1.Read())
             {
-                 respuesta = reader1.GetString(0);
+                respuesta = reader1.GetString(0);
             }
             reader1.Close();
             connection.Close();
@@ -81,7 +81,7 @@ namespace Presentation
             //MessageBox.Show(sol, respuesta);
             for (int i = 0; i < 100; i++)
             {
-                dataGridView2.Rows[i].Cells[0].Value = (i+1).ToString();
+                dataGridView2.Rows[i].Cells[0].Value = (i + 1).ToString();
                 dataGridView2.Rows[i].Cells[1].Value = respuesta.Substring(i, 1);
                 dataGridView2.Rows[i].Cells[2].Value = sol.Substring(i, 1);
             }
@@ -96,7 +96,7 @@ namespace Presentation
 
 
             //connection.Open();
-            
+
 
             //conexion.Open();
 
@@ -111,9 +111,9 @@ namespace Presentation
             //{
             //    dataGridView1.Rows[i].Cells[4].Value = i < 20 ? "INGRESO" : "NO INGRESO";
             //}
-            dataGridView1.Columns[0].Width = 65;
-            dataGridView1.Columns[1].Width = 220;
-            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[0].Width = 60;
+            dataGridView1.Columns[1].Width = 210;
+            dataGridView1.Columns[2].Width = 220;
             dataGridView1.Columns[3].Width = 70;
             dataGridView1.Columns[4].Width = 65;
         }
@@ -124,12 +124,13 @@ namespace Presentation
             SqlDataReader reader = consultaSQL.ExecuteReader();
             while (reader.Read())
             {
+                MessageBox.Show(reader.GetString(0));
                 txtComputo.Text = reader.GetString(0);
             }
             reader.Close();
             connection.Close();
         }
-        
+
         public void filtrar(string criterio, string campo)
         {
             string consulta = $"SELECT Postulante.IdPostulante AS CODIGO, CONCAT_WS(' ', Postulante.ApePaterno, Postulante.ApeMaterno, Postulante.Nombre) AS NOMBRE, Especialidad.NombreEspecialidad AS ESPECIALIDAD, Postulante.Condicion AS CONDICION, Puntaje.puntaje AS PUNTAJE from Postulante INNER JOIN Especialidad on Postulante.Especialidad = Especialidad.IdEspecialidad INNER JOIN Puntaje on Puntaje.IdPuntaje = Postulante.Puntaje where {campo} like '%{criterio}%'";
@@ -140,7 +141,7 @@ namespace Presentation
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string campo="";
+            string campo = "";
             switch (cbxFiltro.SelectedIndex)
             {
                 case 0: campo = "IdPostulante"; break;
@@ -152,17 +153,17 @@ namespace Presentation
             filtrar(txtBuscar.Text, campo);
         }
 
-    
-        
+
+
 
         private void chart2_Click(object sender, EventArgs e)
         {
-                
+
         }
-        
+
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             connection.Open();
             try
             {
@@ -173,7 +174,7 @@ namespace Presentation
                 if (n != -1)
                 {
                     codigo = dataGridView1.Rows[n].Cells[0].Value.ToString();
-                    
+
                 }
 
                 //textBox1.Text = codigo.ToString();
@@ -196,13 +197,13 @@ namespace Presentation
                 chart2.Series["Series1"].Points.AddXY("INCORRECTO", Convert.ToInt32(circuloIncorrecto));
                 //verSol(codigo);
 
-                
-                
-                
+
+
+
                 String consultaSQL1 = $"SELECT Respuestas FROM Postulante where IdPostulante = {codigo}";
                 SqlCommand connn = new SqlCommand(consultaSQL1, connection);
                 string pos = Convert.ToString(connn.ExecuteScalar());
-                
+
 
 
                 String consultaSQL2 = $"select Solucionario.Solucion from Solucionario INNER JOIN Postulante on Postulante.Tema = Solucionario.IdSolucionario where Postulante.IdPostulante={codigo}";
