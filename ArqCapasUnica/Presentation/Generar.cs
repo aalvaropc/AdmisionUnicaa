@@ -180,7 +180,7 @@ namespace Presentation
 
             }
             sr.Close();
-            MessageBox.Show(gIdPostulante);
+            //MessageBox.Show(gIdPostulante);
             SqlConnection cn = new SqlConnection("Server=LAPTOP-8LNIGLG0;DataBase=prueba; integrated security=true"); ;
             SqlCommand cmd = new SqlCommand($"Select * from Postulante where IdPostulante in ({gIdPostulante})", cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);

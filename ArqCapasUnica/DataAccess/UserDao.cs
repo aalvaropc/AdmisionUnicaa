@@ -68,7 +68,7 @@ namespace DataAccess
                 }
             }
         }
-
+        //int[]
         public void generate(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuestas, string condicion, int puntaje, int tema)
         {
             Console.WriteLine($"Insert into Postulante values('{idPostulante.ToString()}', '{nombre.ToString()}', '{apePaterno.ToString()}', '{apeMaterno.ToString()}', {especialidad.ToString()}, '{respuestas.ToString()}','{condicion}', {puntaje.ToString()}, {UserLoginCache.IdUser}, {tema.ToString()})");

@@ -12,8 +12,6 @@ namespace Domain
     {
         
         UserDao userDao = new UserDao();
-        //EDITADO------------------------------------
-        //atributos
         private string idPostulante;
         private string nombre;
         private string apePaterno;
@@ -56,6 +54,7 @@ namespace Domain
         public void generate(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuesta, string condicion, int puntaje, int tema)
         {
             userDao.generate(idPostulante, nombre, apePaterno, apeMaterno, especialidad, respuesta, condicion, puntaje, tema);
+
         }
     }
 }

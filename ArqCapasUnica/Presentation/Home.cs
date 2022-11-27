@@ -24,7 +24,7 @@ namespace Presentation
        
         private void BtnDesplazar_Click(object sender, EventArgs e)
         {
-            i = 1;
+            //i = 1;
             if (MVertical.Width == 214)
             {
                 MVertical.Width = 80;
