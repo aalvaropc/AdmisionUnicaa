@@ -34,11 +34,15 @@ namespace Presentation
         string consulta = "";
         string tema = "";
         int especialidad = 1;
-        int respIncorrecta = 0;
-        int respCorrecta = 0;
-        int respBlanco = 0;
+        
+        int idsol = 0;
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+            int respIncorrecta = 0;
+            int respCorrecta = 0;
+            int respBlanco = 0;
+
+
             string fullName;
             int cantidadPos = Convert.ToInt32(txtCantAlumnos.Text);
             StreamReader sr = new StreamReader("C:\\Users\\estilos\\Desktop\\NombresPostulantesValidos.txt");
@@ -74,9 +78,9 @@ namespace Presentation
                 if(especialidad>=1 && especialidad <= 8)
                 {
                     switch (r.Next(0, 3)){
-                        case 0: tema = "F"; break;
-                        case 1: tema = "G"; break;
-                        case 2: tema = "H"; break;
+                        case 0: tema = "F"; idsol = 1; break;
+                        case 1: tema = "G"; idsol = 2; break;
+                        case 2: tema = "H"; idsol = 3; break;
                     }
                 }
                 
@@ -84,9 +88,9 @@ namespace Presentation
                 {
                     switch (r.Next(0, 3))
                     {
-                        case 0: tema = "I"; break;
-                        case 1: tema = "J"; break;
-                        case 2: tema = "K"; break;
+                        case 0: tema = "I"; idsol = 4; break;
+                        case 1: tema = "J"; idsol = 5; break;
+                        case 2: tema = "K"; idsol = 6; break;
                     }
                 }
                 
@@ -94,9 +98,9 @@ namespace Presentation
                 {
                     switch (r.Next(0, 3))
                     {
-                        case 0: tema = "L"; break;
-                        case 1: tema = "M"; break;
-                        case 2: tema = "N"; break;
+                        case 0: tema = "L"; idsol = 7; break;
+                        case 1: tema = "M"; idsol = 8; break;
+                        case 2: tema = "N"; idsol = 9; break;
                     }
                 }
 
@@ -111,7 +115,7 @@ namespace Presentation
                 reader.Close();
                 
 
-                for(int j=0; j<resp.Length; j++)
+                for(int j=0; j<100; j++)
                 {
                     
                     if (resp[j] == '-')
@@ -146,18 +150,21 @@ namespace Presentation
                 {
                     
                     PostulanteModel postulante = new PostulanteModel();
-                    postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp,"INGRESO", 200000000 + codigo);
+                    postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp,"INGRESO", 200000000 + codigo, idsol);
                 }
                 else
                 {
                     if (i >= almacenado + 1 && i <= cantidadPos + almacenado)
                     {
                         PostulanteModel postulante = new PostulanteModel();
-                        postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp, "INGRESO", 200000000 + codigo);
+                        postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp, "INGRESO", 200000000 + codigo, idsol);
                     }
                 }
                 resp = ""; //resetea las respuestas generadas
-                
+                respIncorrecta = 0;
+                respCorrecta = 0;
+                respBlanco = 0;
+
             }
             sr.Close();
 

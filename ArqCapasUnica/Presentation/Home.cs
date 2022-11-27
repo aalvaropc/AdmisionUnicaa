@@ -33,9 +33,7 @@ namespace Presentation
             else
                 MVertical.Width = 214;
         }
-        // SORRY NO ENTENDI MUCHO PERO SI ME SALIO, ES UN COPIA Y PEGA DEL LABEL "HOME" QUE ESTA ABAJO DEL LOGO SAN LUCHITO.
-        //ADJUNTO VIDEO Y MIN DEL VIDEO XD  : https://www.youtube.com/watch?v=BtOEztT1Qzk , RESULTADO : MIN 20:45, SE MUESTRA COMO LA PALABRA "HOME" CAMBIA RESPECTIVAMENTE AL NOMBRE DEL BOTON CORRESPONDIENTE.
-        private void OpenChildForm(Form childform, object btnsender) {
+         private void OpenChildForm(Form childform, object btnsender) {
 
             if(activeform != null){
             ActiveForm.Activate();
@@ -49,7 +47,7 @@ namespace Presentation
             this.Panel_Contenido.Tag = childform;
             childform.BringToFront();
             childform.Show(); 
-            lbltitle.Text = childform.Text;
+            //lbltitle.Text = childform.Text;
         }
         private void LoadUserData()
         {
@@ -74,12 +72,7 @@ namespace Presentation
             OpenChildForm(new Generar(), sender);
         }
 
-        //private void button4_Click(object sender, EventArgs e)
-        //{
-        //    OpenChildForm(new Edit(), sender);
-
-        //}
-
+ 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //EL TIEMPO DE RELLENO X2
@@ -90,15 +83,8 @@ namespace Presentation
         {
             LoadUserData();
             OpenChildForm(new Postulantes(), sender);
-
-            //Sirve para actualizar el nombre del usuario del home una vez editado
-            //edit.ResetProfile += new Edit.ResetNameProfile(ChangeName);
         }
-        //sirve para cambiar el nombre una vez editado
-        //void ChangeName(string mensaje)
-        //{
-        //    this.nameUser.Text = mensaje;
-        //}
+
         private void button5_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Estas seguro de cerrar la aplicacion?", "WARNING",

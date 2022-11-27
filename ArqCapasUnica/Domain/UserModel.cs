@@ -60,13 +60,5 @@ namespace Domain
         {
             return userDao.Login(user, pass);
         }
-        //public bool editPassword(int user, string pass)
-        //{
-        //    if(user == UserLoginCache.IdUser)
-        //    {
-
-        //    }
-        //    return true;
-        //}
     }
 }

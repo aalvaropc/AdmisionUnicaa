@@ -41,7 +41,6 @@
             this.nameUser = new System.Windows.Forms.Label();
             this.B_Titulo = new System.Windows.Forms.Panel();
             this.Tiempo = new System.Windows.Forms.Label();
-            this.lbltitle = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel_Contenido = new System.Windows.Forms.Panel();
@@ -186,7 +185,7 @@
             this.nameUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nameUser.AutoSize = true;
             this.nameUser.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameUser.Location = new System.Drawing.Point(960, 15);
+            this.nameUser.Location = new System.Drawing.Point(850, 15);
             this.nameUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameUser.Name = "nameUser";
             this.nameUser.Size = new System.Drawing.Size(174, 29);
@@ -197,7 +196,6 @@
             // 
             this.B_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(225)))), ((int)(((byte)(186)))));
             this.B_Titulo.Controls.Add(this.Tiempo);
-            this.B_Titulo.Controls.Add(this.lbltitle);
             this.B_Titulo.Controls.Add(this.pictureBox2);
             this.B_Titulo.Controls.Add(this.nameUser);
             this.B_Titulo.Controls.Add(this.pictureBox1);
@@ -213,32 +211,21 @@
             this.Tiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Tiempo.AutoSize = true;
             this.Tiempo.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tiempo.Location = new System.Drawing.Point(943, 49);
+            this.Tiempo.Location = new System.Drawing.Point(851, 50);
             this.Tiempo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Tiempo.Name = "Tiempo";
-            this.Tiempo.Size = new System.Drawing.Size(99, 24);
+            this.Tiempo.Size = new System.Drawing.Size(54, 24);
             this.Tiempo.TabIndex = 4;
-            this.Tiempo.Text = "Tiempo :c";
-            // 
-            // lbltitle
-            // 
-            this.lbltitle.AutoSize = true;
-            this.lbltitle.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitle.Location = new System.Drawing.Point(528, 65);
-            this.lbltitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(64, 23);
-            this.lbltitle.TabIndex = 3;
-            this.lbltitle.Text = "HOME";
+            this.Tiempo.Text = "Time";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(233, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(-16, 9);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(588, 58);
+            this.pictureBox2.Size = new System.Drawing.Size(735, 89);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -247,7 +234,7 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(852, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(742, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 74);
@@ -306,7 +293,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label lbltitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Tiempo;
         private System.Windows.Forms.Timer timer1;

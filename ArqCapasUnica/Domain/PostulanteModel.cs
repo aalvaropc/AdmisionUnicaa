@@ -23,7 +23,8 @@ namespace Domain
         private string condicion;
         private int puntaje;
         private int usuario;
-        public PostulanteModel(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuesta, string condicion, int puntaje, int usuario)
+        private int tema;
+        public PostulanteModel(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuesta, string condicion, int puntaje, int usuario, int tema)
         {
             this.IdPostulante = idPostulante;
             this.Nombre = nombre;
@@ -34,6 +35,7 @@ namespace Domain
             this.Condicion = condicion;
             this.Puntaje = puntaje;
             this.Usuario = usuario;
+            this.tema = tema;
         }
 
         public string IdPostulante { get => idPostulante; set => idPostulante = value; }
@@ -45,15 +47,15 @@ namespace Domain
         public string Condicion { get => condicion; set => condicion = value; }
         public int Puntaje { get => puntaje; set => puntaje = value; }
         public int Usuario { get => usuario; set => usuario = value; }
-
+        public int Tema { get => tema; set => tema = value; }
         public PostulanteModel()
         {
 
         }
 
-        public void generate(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuesta, string condicion, int puntaje)
+        public void generate(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuesta, string condicion, int puntaje, int tema)
         {
-            userDao.generate(idPostulante, nombre, apePaterno, apeMaterno, especialidad, respuesta, condicion, puntaje);
+            userDao.generate(idPostulante, nombre, apePaterno, apeMaterno, especialidad, respuesta, condicion, puntaje, tema);
         }
     }
 }

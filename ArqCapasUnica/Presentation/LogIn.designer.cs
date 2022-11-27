@@ -34,12 +34,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.prueba = new Presentation.Controls.TxtBoxUnica();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -101,7 +100,6 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(234)))));
             this.panel2.Controls.Add(this.txtPassword);
             this.panel2.Controls.Add(this.txtUser);
-            this.panel2.Controls.Add(this.prueba);
             this.panel2.Controls.Add(this.lblErrorMessage);
             this.panel2.Controls.Add(this.btnIngresar);
             this.panel2.Controls.Add(this.pictureBox2);
@@ -111,23 +109,19 @@
             this.panel2.Size = new System.Drawing.Size(269, 540);
             this.panel2.TabIndex = 1;
             // 
-            // prueba
+            // txtPassword
             // 
-            this.prueba.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(234)))));
-            this.prueba.Bordercolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.prueba.BorderSize = 2;
-            this.prueba.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prueba.ForeColor = System.Drawing.Color.DimGray;
-            this.prueba.Location = new System.Drawing.Point(36, 23);
-            this.prueba.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.prueba.Multiline = false;
-            this.prueba.Name = "prueba";
-            this.prueba.Padding = new System.Windows.Forms.Padding(7);
-            this.prueba.PasswordChar = false;
-            this.prueba.Size = new System.Drawing.Size(173, 35);
-            this.prueba.TabIndex = 9;
-            this.prueba.Texts = "";
-            this.prueba.UnderlinedStyle = true;
+            this.txtPassword.Location = new System.Drawing.Point(48, 259);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(173, 22);
+            this.txtPassword.TabIndex = 12;
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(48, 179);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(173, 22);
+            this.txtUser.TabIndex = 11;
             // 
             // lblErrorMessage
             // 
@@ -166,20 +160,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(48, 179);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(173, 22);
-            this.txtUser.TabIndex = 11;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(48, 259);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(173, 22);
-            this.txtPassword.TabIndex = 12;
-            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -215,7 +195,6 @@
         //private Controls.TxtBoxUnica txtBoxUnica2;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblErrorMessage;
-        private Controls.TxtBoxUnica prueba;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUser;
     }
