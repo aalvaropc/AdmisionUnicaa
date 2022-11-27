@@ -60,7 +60,7 @@
             // txtCantAlumnos
             // 
             this.txtCantAlumnos.BackColor = System.Drawing.Color.MistyRose;
-            this.txtCantAlumnos.Location = new System.Drawing.Point(298, 48);
+            this.txtCantAlumnos.Location = new System.Drawing.Point(309, 48);
             this.txtCantAlumnos.Name = "txtCantAlumnos";
             this.txtCantAlumnos.Size = new System.Drawing.Size(282, 22);
             this.txtCantAlumnos.TabIndex = 2;
@@ -70,7 +70,7 @@
             this.btnGenerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerar.ForeColor = System.Drawing.Color.White;
-            this.btnGenerar.Location = new System.Drawing.Point(597, 41);
+            this.btnGenerar.Location = new System.Drawing.Point(611, 43);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(143, 37);
             this.btnGenerar.TabIndex = 3;

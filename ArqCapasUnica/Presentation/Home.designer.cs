@@ -66,14 +66,14 @@
             this.MVertical.Location = new System.Drawing.Point(0, 0);
             this.MVertical.Margin = new System.Windows.Forms.Padding(4);
             this.MVertical.Name = "MVertical";
-            this.MVertical.Size = new System.Drawing.Size(285, 803);
+            this.MVertical.Size = new System.Drawing.Size(252, 803);
             this.MVertical.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(129, 50);
+            this.label2.Location = new System.Drawing.Point(96, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 23);
@@ -105,9 +105,9 @@
             this.button5.Location = new System.Drawing.Point(0, 720);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(285, 84);
+            this.button5.Size = new System.Drawing.Size(186, 84);
             this.button5.TabIndex = 7;
-            this.button5.Text = "              Cerrar Sesión";
+            this.button5.Text = "              Salir";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -122,7 +122,7 @@
             this.button4.Location = new System.Drawing.Point(0, 357);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(285, 84);
+            this.button4.Size = new System.Drawing.Size(195, 84);
             this.button4.TabIndex = 6;
             this.button4.Text = "            Edit";
             this.button4.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             this.button3.Location = new System.Drawing.Point(0, 273);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(285, 84);
+            this.button3.Size = new System.Drawing.Size(233, 84);
             this.button3.TabIndex = 5;
             this.button3.Text = "            Generar";
             this.button3.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@
             this.button2.Location = new System.Drawing.Point(0, 190);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(285, 84);
+            this.button2.Size = new System.Drawing.Size(233, 84);
             this.button2.TabIndex = 4;
             this.button2.Text = "            i.Manual";
             this.button2.UseVisualStyleBackColor = true;
@@ -174,7 +174,7 @@
             this.button1.Location = new System.Drawing.Point(0, 106);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(285, 84);
+            this.button1.Size = new System.Drawing.Size(256, 84);
             this.button1.TabIndex = 3;
             this.button1.Text = "            Postulantes";
             this.button1.UseVisualStyleBackColor = true;
@@ -185,7 +185,7 @@
             this.nameUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nameUser.AutoSize = true;
             this.nameUser.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameUser.Location = new System.Drawing.Point(850, 15);
+            this.nameUser.Location = new System.Drawing.Point(883, 15);
             this.nameUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameUser.Name = "nameUser";
             this.nameUser.Size = new System.Drawing.Size(174, 29);
@@ -200,10 +200,10 @@
             this.B_Titulo.Controls.Add(this.nameUser);
             this.B_Titulo.Controls.Add(this.pictureBox1);
             this.B_Titulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.B_Titulo.Location = new System.Drawing.Point(285, 0);
+            this.B_Titulo.Location = new System.Drawing.Point(252, 0);
             this.B_Titulo.Margin = new System.Windows.Forms.Padding(4);
             this.B_Titulo.Name = "B_Titulo";
-            this.B_Titulo.Size = new System.Drawing.Size(1160, 106);
+            this.B_Titulo.Size = new System.Drawing.Size(1193, 106);
             this.B_Titulo.TabIndex = 1;
             // 
             // Tiempo
@@ -211,7 +211,7 @@
             this.Tiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Tiempo.AutoSize = true;
             this.Tiempo.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tiempo.Location = new System.Drawing.Point(851, 50);
+            this.Tiempo.Location = new System.Drawing.Point(884, 50);
             this.Tiempo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Tiempo.Name = "Tiempo";
             this.Tiempo.Size = new System.Drawing.Size(54, 24);
@@ -222,7 +222,7 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-16, 9);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 9);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(735, 89);
@@ -234,7 +234,7 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(742, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(775, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 74);
@@ -246,10 +246,10 @@
             // 
             this.Panel_Contenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.Panel_Contenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Contenido.Location = new System.Drawing.Point(285, 106);
+            this.Panel_Contenido.Location = new System.Drawing.Point(252, 106);
             this.Panel_Contenido.Margin = new System.Windows.Forms.Padding(4);
             this.Panel_Contenido.Name = "Panel_Contenido";
-            this.Panel_Contenido.Size = new System.Drawing.Size(1160, 697);
+            this.Panel_Contenido.Size = new System.Drawing.Size(1193, 697);
             this.Panel_Contenido.TabIndex = 2;
             // 
             // timer1
