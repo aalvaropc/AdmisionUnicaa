@@ -37,12 +37,16 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.AntiqueWhite;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(52, 95);
+            this.dataGridView1.Location = new System.Drawing.Point(64, 95);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1059, 440);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1042, 440);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -51,7 +55,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(48, 48);
+            this.label1.Location = new System.Drawing.Point(60, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(244, 22);
             this.label1.TabIndex = 1;
@@ -60,7 +64,7 @@
             // txtCantAlumnos
             // 
             this.txtCantAlumnos.BackColor = System.Drawing.Color.MistyRose;
-            this.txtCantAlumnos.Location = new System.Drawing.Point(309, 48);
+            this.txtCantAlumnos.Location = new System.Drawing.Point(337, 50);
             this.txtCantAlumnos.Name = "txtCantAlumnos";
             this.txtCantAlumnos.Size = new System.Drawing.Size(282, 22);
             this.txtCantAlumnos.TabIndex = 2;
@@ -70,7 +74,7 @@
             this.btnGenerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerar.ForeColor = System.Drawing.Color.White;
-            this.btnGenerar.Location = new System.Drawing.Point(611, 43);
+            this.btnGenerar.Location = new System.Drawing.Point(625, 43);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(143, 37);
             this.btnGenerar.TabIndex = 3;

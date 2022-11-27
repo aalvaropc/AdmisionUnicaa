@@ -16,22 +16,23 @@ namespace Presentation
         public Home()
         {
             InitializeComponent();
-            //TIEMPO JAJAJA DE RELLENO
             timer1.Enabled = true;
 
         }
 
         private Form activeform;
-        // PARA DESPLAZAR LA BARRITA 
+       
         private void BtnDesplazar_Click(object sender, EventArgs e)
         {
-
+            i = 1;
             if (MVertical.Width == 214)
             {
                 MVertical.Width = 80;
             }
             else
                 MVertical.Width = 214;
+
+          
         }
         private void OpenChildForm(Form childform, object btnsender)
         {
@@ -40,7 +41,6 @@ namespace Presentation
             {
                 ActiveForm.Activate();
             }
-            //ActivateButton(btnsender);
             activeform = childform;
             childform.TopLevel = false;
             childform.FormBorderStyle = FormBorderStyle.None;
@@ -49,7 +49,6 @@ namespace Presentation
             this.Panel_Contenido.Tag = childform;
             childform.BringToFront();
             childform.Show();
-            //lbltitle.Text = childform.Text;
         }
         private void LoadUserData()
         {
@@ -58,26 +57,22 @@ namespace Presentation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Para visualizar Los form en el "Panel_Contenido" de Principal 
             OpenChildForm(new Postulantes(), sender);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Para visualizar Los form en el "Panel_Contenido" de Principal 
             OpenChildForm(new Manual(), sender);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //Para visualizar Los form en el "Panel_Contenido" de Principal 
             OpenChildForm(new Generar(), sender);
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //EL TIEMPO DE RELLENO X2
             Tiempo.Text = DateTime.Now.ToString();
         }
 

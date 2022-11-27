@@ -41,7 +41,6 @@ namespace Presentation
                 lista[i].Items.Add("E");
                 lista[i].Items.Add("-");
             }
-            //cargarOp();
             string facultades = "";
 
             for (int i = 1; i <= 24; i++)
@@ -79,7 +78,6 @@ namespace Presentation
 
             connection.Open();
             SqlCommand consultaSQL2 = new SqlCommand($"SELECT count(NombreEspecialidad) FROM ESPECIALIDAD WHERE FACULTAD = {cbxFacultad.SelectedIndex + 1}", connection);
-            //MessageBox.Show((cbxFacultad.SelectedIndex + 1).ToString());
             SqlDataReader reader2 = consultaSQL2.ExecuteReader();
             while (reader2.Read())
             {
@@ -87,7 +85,7 @@ namespace Presentation
             }
             reader2.Close();
             connection.Close();
-            //MessageBox.Show(numRes.ToString());
+            
 
 
             //ITERNO SOBRE LAS ESPECIALIDADES DENTRO DE LA FACULTAD
@@ -157,13 +155,51 @@ namespace Presentation
 
         }
         string tema = "", consulta = "";
-        //string gtema = "";
-        //int gpostema = -1;
+
         int respBlanco = 0, respCorrecta = 0, respIncorrecta = 0;
 
 
 
         double puntaje = 0;
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            string nombre = txtNombre.Text;
+            string apePat = txtApPaterno.Text;
+            string apeMat = txtApMaterno.Text;
+            string codigo = txtCodigo.Text;
+            string especialidad = cbxEspecialidad.SelectedItem.ToString();
+            string correcta = txtCorrecto.ToString();
+            string incorrecta = txtIncorrecto.ToString();
+            string blanco = txtBlanco.ToString();
+            string nota = txtNota.ToString();
+            string temaPos = tema;
+            string respuesta = resp;
+
+            
+            String consultaSQL1 = $"select IdEspecialidad from Especialidad where NombreEspecialidad ='{especialidad}'";
+            SqlCommand connn = new SqlCommand(consultaSQL1, connection);
+            int codEspecialidad = Convert.ToInt32(connn.ExecuteScalar());
+
+            String consultaSQL2 = $"select IdSolucionario from Solucionario where Tema = '{temaPos}';";
+            SqlCommand connn2 = new SqlCommand(consultaSQL2, connection);
+            int codSol = Convert.ToInt32(connn2.ExecuteScalar());
+
+            
+            //INSERTAR PUNTAJE
+            MessageBox.Show($"INSERT INTO Puntaje VALUES (2{codigo}, {blanco}, {correcta}, {incorrecta}, {nota})");
+            SqlCommand comando = new SqlCommand($"INSERT INTO Puntaje VALUES (2{codigo}, {respBlanco}, {respCorrecta}, {respIncorrecta}, {(puntaje.ToString()).Replace(",", ".")})", connection);
+            comando.ExecuteNonQuery();
+
+            //GENERANDO POSTULANTE
+            PostulanteModel postulante = new PostulanteModel();
+            postulante.generate(codigo, nombre, apePat, apeMat, codEspecialidad, respuesta, "INGRESO", 200000000 + Convert.ToInt32(codigo), codSol);
+
+            //resetear las repuestas
+            resp = "";
+            tema = "";
+        }
+
         string resp = "";
         private void btnCalificar_Click(object sender, EventArgs e)
         {
@@ -210,9 +246,6 @@ namespace Presentation
                         case 2: tema += "N"; break;
                     }; break;
             }
-            MessageBox.Show(tema.ToString());
-            //gtema += tema; //acumulo el tema
-            //gpostema++;
 
             connection.Open();
             SqlCommand consultaSQL = new SqlCommand($"SELECT SOLUCION FROM SOLUCIONARIO WHERE TEMA = '{tema}'", connection);
@@ -254,49 +287,5 @@ namespace Presentation
 
 
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-            string nombre = txtNombre.Text;
-            string apePat = txtApPaterno.Text;
-            string apeMat = txtApMaterno.Text;
-            string codigo = txtCodigo.Text;
-            string especialidad = cbxEspecialidad.SelectedItem.ToString();
-            string correcta = txtCorrecto.ToString();
-            string incorrecta = txtIncorrecto.ToString();
-            string blanco = txtBlanco.ToString();
-            string nota = txtNota.ToString();
-            //string tema = gtema[gpostema].ToString();
-            string temaPos = tema;
-            string respuesta = resp;
-
-
-
-            //select IdEspecialidad from Especialidad where NombreEspecialidad =''
-            String consultaSQL1 = $"select IdEspecialidad from Especialidad where NombreEspecialidad ='{especialidad}'";
-            SqlCommand connn = new SqlCommand(consultaSQL1, connection);
-            int codEspecialidad = Convert.ToInt32(connn.ExecuteScalar());
-
-
-
-            String consultaSQL2 = $"select IdSolucionario from Solucionario where Tema = '{temaPos}';";
-            SqlCommand connn2 = new SqlCommand(consultaSQL2, connection);
-            int codSol = Convert.ToInt32(connn2.ExecuteScalar());
-
-
-            //MessageBox.Show(gtema[gpostema].ToString());
-            //INSERTAR PUNTAJE
-            MessageBox.Show($"INSERT INTO Puntaje VALUES (2{codigo}, {blanco}, {correcta}, {incorrecta}, {nota})");
-            SqlCommand comando = new SqlCommand($"INSERT INTO Puntaje VALUES (2{codigo}, {respBlanco}, {respCorrecta}, {respIncorrecta}, {(puntaje.ToString()).Replace(",", ".")})", connection);
-            comando.ExecuteNonQuery();
-
-            //GENERANDO POSTULANTE
-            PostulanteModel postulante = new PostulanteModel();
-            postulante.generate(codigo, nombre, apePat, apeMat, codEspecialidad, respuesta, "INGRESO", 200000000 + Convert.ToInt32(codigo), codSol);
-
-            //resetear las repuestas
-            resp = "";
-            tema = "";
-        }
     }
 }

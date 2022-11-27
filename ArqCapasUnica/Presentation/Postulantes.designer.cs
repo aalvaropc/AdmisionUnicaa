@@ -60,7 +60,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(245, 7);
+            this.label1.Location = new System.Drawing.Point(222, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 16);
             this.label1.TabIndex = 0;
@@ -71,7 +71,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label2.Location = new System.Drawing.Point(415, 7);
+            this.label2.Location = new System.Drawing.Point(392, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 16);
             this.label2.TabIndex = 1;
@@ -81,7 +81,7 @@
             // 
             this.cbxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFiltro.FormattingEnabled = true;
-            this.cbxFiltro.Location = new System.Drawing.Point(248, 29);
+            this.cbxFiltro.Location = new System.Drawing.Point(225, 28);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(149, 24);
             this.cbxFiltro.TabIndex = 2;
@@ -92,7 +92,7 @@
             this.cbxEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEspecialidad.DropDownWidth = 240;
             this.cbxEspecialidad.FormattingEnabled = true;
-            this.cbxEspecialidad.Location = new System.Drawing.Point(418, 29);
+            this.cbxEspecialidad.Location = new System.Drawing.Point(395, 28);
             this.cbxEspecialidad.Name = "cbxEspecialidad";
             this.cbxEspecialidad.Size = new System.Drawing.Size(279, 24);
             this.cbxEspecialidad.TabIndex = 3;
@@ -101,7 +101,7 @@
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(734, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(711, 26);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(80, 31);
             this.btnBuscar.TabIndex = 4;
@@ -112,7 +112,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.MistyRose;
-            this.txtBuscar.Location = new System.Drawing.Point(35, 31);
+            this.txtBuscar.Location = new System.Drawing.Point(12, 30);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(201, 22);
             this.txtBuscar.TabIndex = 5;
@@ -123,7 +123,7 @@
             this.chart2.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(837, 430);
+            this.chart2.Location = new System.Drawing.Point(911, 429);
             this.chart2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.chart2.Name = "chart2";
             series1.ChartArea = "ChartArea1";
@@ -132,7 +132,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(293, 148);
+            this.chart2.Size = new System.Drawing.Size(260, 148);
             this.chart2.TabIndex = 8;
             this.chart2.Text = "chart2";
             this.chart2.Click += new System.EventHandler(this.chart2_Click);
@@ -140,7 +140,7 @@
             // txtComputo
             // 
             this.txtComputo.BackColor = System.Drawing.Color.MistyRose;
-            this.txtComputo.Location = new System.Drawing.Point(841, 45);
+            this.txtComputo.Location = new System.Drawing.Point(882, 44);
             this.txtComputo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtComputo.Name = "txtComputo";
             this.txtComputo.Size = new System.Drawing.Size(289, 22);
@@ -153,7 +153,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(901, 12);
+            this.label3.Location = new System.Drawing.Point(942, 11);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
@@ -177,7 +177,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 63);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 62);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -185,7 +185,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(779, 614);
+            this.dataGridView1.Size = new System.Drawing.Size(852, 620);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
             // 
@@ -203,7 +203,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(841, 166);
+            this.dataGridView2.Location = new System.Drawing.Point(882, 165);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -228,7 +228,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(703, 27);
+            this.label4.Location = new System.Drawing.Point(680, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 24);
             this.label4.TabIndex = 14;
@@ -240,7 +240,7 @@
             this.btnGenerarPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.btnGenerarPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerarPdf.ForeColor = System.Drawing.Color.White;
-            this.btnGenerarPdf.Location = new System.Drawing.Point(896, 601);
+            this.btnGenerarPdf.Location = new System.Drawing.Point(937, 600);
             this.btnGenerarPdf.Name = "btnGenerarPdf";
             this.btnGenerarPdf.Size = new System.Drawing.Size(188, 37);
             this.btnGenerarPdf.TabIndex = 15;
@@ -251,7 +251,7 @@
             // txtPostulantes
             // 
             this.txtPostulantes.BackColor = System.Drawing.Color.MistyRose;
-            this.txtPostulantes.Location = new System.Drawing.Point(841, 123);
+            this.txtPostulantes.Location = new System.Drawing.Point(882, 122);
             this.txtPostulantes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPostulantes.Name = "txtPostulantes";
             this.txtPostulantes.Size = new System.Drawing.Size(289, 22);
@@ -263,7 +263,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(958, 90);
+            this.label5.Location = new System.Drawing.Point(999, 89);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
@@ -276,7 +276,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
-            this.ClientSize = new System.Drawing.Size(1158, 712);
+            this.ClientSize = new System.Drawing.Size(1214, 712);
             this.Controls.Add(this.txtPostulantes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnGenerarPdf);
