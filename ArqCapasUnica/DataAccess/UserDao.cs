@@ -83,20 +83,7 @@ namespace DataAccess
                     command.CommandType = CommandType.Text;
                     command.ExecuteNonQuery();
                 }
-                //using (var command = new SqlCommand())
-                //{
-                //    command.Connection = connection;
-                //    command.CommandText = $"select IdSolucionario from Solucionario where Tema = '{tema.ToString()}";
-                //    command.CommandType = CommandType.Text;
-                //    SqlDataReader reader = command.ExecuteReader();
-                //    if (reader.HasRows)
-                //    {
-                //        while (reader.Read())
-                //        {
-                //            Idespecialidad = reader.GetInt32(0);
-                //        }
-                //    }
-                //}
+
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
