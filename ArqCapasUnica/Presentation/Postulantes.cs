@@ -291,7 +291,8 @@ namespace Presentation
         }
         private void btnGenerarPdf_Click(object sender, EventArgs e)
         {
-
+            GenerarPDF pdf = new GenerarPDF();
+            pdf.Generar();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
