@@ -56,5 +56,13 @@ namespace Domain
             userDao.generate(idPostulante, nombre, apePaterno, apeMaterno, especialidad, respuesta, condicion, puntaje, tema);
 
         }
+        public void saveGen(int save)
+        {
+            userDao.Save(save);
+        }
+        public void fresh(int val)
+        {
+            userDao.Fresh(val);
+        }
     }
 }

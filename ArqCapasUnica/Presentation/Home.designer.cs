@@ -286,7 +286,6 @@
         private System.Windows.Forms.Panel B_Titulo;
         private System.Windows.Forms.PictureBox BtnDesplazar;
         private System.Windows.Forms.Panel Panel_Contenido;
-        private System.Windows.Forms.Label nameUser;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
@@ -296,5 +295,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Tiempo;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Label nameUser;
     }
 }

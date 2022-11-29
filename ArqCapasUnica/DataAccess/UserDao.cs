@@ -13,7 +13,6 @@ namespace DataAccess
 {
     public class UserDao : ConnectionToSql
     {
-        //EDITADO---------------------------------
         public void editProfile(int id, string userName, string password, string name, string lastName, string mail)
         {
             using (var connection = GetConnection())
@@ -34,8 +33,8 @@ namespace DataAccess
                     command.ExecuteNonQuery();
                 }
             }
-        }
-        //EDITADO---------------------------------
+            
+        }        
         public bool Login(string user, string pass)
         {
             using (var connection = GetConnection())
@@ -92,9 +91,15 @@ namespace DataAccess
                     command.ExecuteNonQuery();
                 }
             }
-
-
         }
 
+        public void Save(int save)
+        {
+            SaveGenerate.Save = save;
+        }
+        public void Fresh(int refresh)
+        {
+            Freshh.fresh = refresh;
+        }
     }
 }

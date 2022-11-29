@@ -75,14 +75,10 @@ namespace Presentation
                 reset();
             }
         }
-        // Delegado
-        //public delegate void ResetNameProfile(string mensaje);
-        ////Evento
-        //public event ResetNameProfile ResetProfile;
+
+        int fresh1 = 0;
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //EJECUTANDO EVENTO DE RESET NAME PROFILE
-            //this.ResetProfile =new UserLoginCache.FirstName;
 
 
             if (txtPassword.Text.Length > 2)
@@ -98,7 +94,9 @@ namespace Presentation
                             lastName: txtLastName.Text,
                             email: txtEmail.Text);
                         var result = userModel.editUserProfile();
-                        MessageBox.Show(result);
+                        //MessageBox.Show(result);
+                        //home.nameUser.Text = lblFirstName.Text;
+                        
                         reset();
                         
                     }
@@ -110,7 +108,10 @@ namespace Presentation
             }
             else
                 MessageBox.Show("La contraseña debe tener mas de 2 caracteres");
-            
+
+            fresh1++;
+            Freshh.fresh = fresh1;
+
         }
 
         

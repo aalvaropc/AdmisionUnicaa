@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Common.Cache;
 using Domain;
 using System.Data.SqlClient;
+using Common.Cache;
 
 
 
@@ -39,7 +40,7 @@ namespace Presentation
         int y = 0;
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(y.ToString());
+            almacenado = SaveGenerate.Save;
             if (y != 0)
             {
                 dataGridView1.DataSource = null;
@@ -57,7 +58,6 @@ namespace Presentation
             string resp = "";
             string[] op = { "A", "B", "C", "D", "E", "-" };
             double puntaje = 0;
-            //List<string> gIdPostulante = new List<string>();
             string gIdPostulante = "";
             for (int i = 1; i <= cantidadPos + almacenado; i++)
             {
@@ -76,7 +76,6 @@ namespace Presentation
                 string nombre = "";
                 string apPaterno = "";
                 string apMaterno = "";
-                //Console.WriteLine(fullName
 
                 nombre = $"{fullName.Split(' ')[2]} {fullName.Split(' ')[3]}";
                 apPaterno = fullName.Split(' ')[0];
@@ -173,14 +172,13 @@ namespace Presentation
                         postulante.generate(codigo.ToString(), nombre, apPaterno, apMaterno, especialidad, resp, "NO INGRESO", 200000000 + codigo, idsol);
                     }
                 }
-                resp = ""; //resetea las respuestas generadas
+                resp = "";
                 respIncorrecta = 0;
                 respCorrecta = 0;
                 respBlanco = 0;
                 puntaje = 0;
             }
             sr.Close();
-            //MessageBox.Show(gIdPostulante);
             SqlConnection cn = new SqlConnection("Server=LAPTOP-8LNIGLG0;DataBase=prueba; integrated security=true"); ;
             SqlCommand cmd = new SqlCommand($"Select * from Postulante where IdPostulante in ({gIdPostulante})", cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -197,10 +195,9 @@ namespace Presentation
             }
             y++;
             gIdPostulante = "";
+            SaveGenerate.Save = almacenado;
 
         }
-
-
 
     }
 }

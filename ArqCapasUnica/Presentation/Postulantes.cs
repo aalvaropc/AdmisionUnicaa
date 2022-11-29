@@ -37,24 +37,6 @@ namespace Presentation
             DataTable dt = new DataTable();
             adaptador.Fill(dt);
             dataGridView1.DataSource = dt;
-
-            //conexion.Open();
-
-            //string consultaNxT = "SELECT COUNT(*) From POSTULANTES WHERE TEMA = 'D' OR TEMA = 'E' OR TEMA = 'F'";
-            //SqlCommand nxt = new SqlCommand(consultaNxT, conexion);
-            //int numperoPosTema = Convert.ToInt32(nxt.ExecuteScalar());
-
-            //conexion.Close();
-
-            //dataGridView1.Columns.Add("", "CONDICION");
-            //for (int i = 0; i < numperoPosTema; i++)
-            //{
-            //    dataGridView1.Rows[i].Cells[4].Value = i < 20 ? "INGRESO" : "NO INGRESO";
-            //}
-            //for (var i = 0; i < dataGridView1.Columns.Count; i++)
-            //{
-            //    dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //}
             dataGridView1.Columns[0].Width = 60;
             dataGridView1.Columns[1].Width = 215;
             dataGridView1.Columns[2].Width = 215;
@@ -203,6 +185,7 @@ namespace Presentation
         private void chart2_Click(object sender, EventArgs e)
         {
         }
+        string codigo = "";
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -210,7 +193,7 @@ namespace Presentation
             try
             {
                 int n = e.RowIndex;
-                string codigo = "";
+                //string codigo = "";
 
 
                 if (n != -1)
@@ -310,7 +293,26 @@ namespace Presentation
         {
 
         }
-      
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Estas seguro de eliminar al postulante?", "WARNING",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                connection.Open();
+                String consultaSQL2 = $"DELETE FROM Puntaje where IdPuntaje=2{codigo}";
+                SqlCommand connn2 = new SqlCommand(consultaSQL2, connection);
+                string pos2 = Convert.ToString(connn2.ExecuteScalar());
+                connection.Close();
+                llenarDGV();
+            }
+                
+            
+        }
     }
 }

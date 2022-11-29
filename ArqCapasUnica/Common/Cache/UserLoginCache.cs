@@ -16,4 +16,12 @@ namespace Common.Cache
         public static string Email { get; set; }
 
     }
+    public static class SaveGenerate
+    {
+        public static int Save { get; set; }
+    }
+    public static class Freshh
+    {
+        public static int fresh { get; set; }
+    }
 }

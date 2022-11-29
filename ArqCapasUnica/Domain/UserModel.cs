@@ -10,8 +10,6 @@ namespace Domain
     public class UserModel
     {
         UserDao userDao = new UserDao();
-        //EDITADO------------------------------------
-        //atributos
         private int idUser;
         private string loginName;
         private string password;
@@ -36,9 +34,13 @@ namespace Domain
         {
             try
             {
+                
                 userDao.editProfile(idUser, loginName, password, firstName, lastName, email);
                 LoginUser(loginName, password);
+                
                 return "Your profile as been successfully update";
+
+
             }
             catch (Exception ex)
             {
@@ -54,8 +56,6 @@ namespace Domain
         public string LastName { get => lastName; set => lastName = value; }
         public string Email { get => email; set => email = value; }
 
-
-        //EDITADO------------------------------------
         public bool LoginUser(string user, string pass)
         {
             return userDao.Login(user, pass);

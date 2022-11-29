@@ -20,6 +20,11 @@ namespace Presentation
 
         }
 
+        
+
+
+
+
         private Form activeform;
        
         private void BtnDesplazar_Click(object sender, EventArgs e)
@@ -34,6 +39,10 @@ namespace Presentation
 
           
         }
+        //public void refrescar(string nuevoNombre)
+        //{
+        //    nameUser.Text = nuevoNombre;
+        //}
         private void OpenChildForm(Form childform, object btnsender)
         {
 
@@ -50,7 +59,8 @@ namespace Presentation
             childform.BringToFront();
             childform.Show();
         }
-        private void LoadUserData()
+      
+        public void LoadUserData()
         {
             nameUser.Text = UserLoginCache.FirstName;
         }
@@ -75,10 +85,16 @@ namespace Presentation
         {
             Tiempo.Text = DateTime.Now.ToString();
         }
-
+        int i = 0;
+        
         private void Home_Load(object sender, EventArgs e)
         {
+            i = Freshh.fresh;
             LoadUserData();
+            if (i > 0)
+            {
+                LoadUserData();
+            }
             OpenChildForm(new Postulantes(), sender);
         }
 

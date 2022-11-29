@@ -50,6 +50,7 @@
             this.btnGenerarPdf = new System.Windows.Forms.Button();
             this.txtPostulantes = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -123,7 +124,7 @@
             this.chart2.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(911, 429);
+            this.chart2.Location = new System.Drawing.Point(882, 402);
             this.chart2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.chart2.Name = "chart2";
             series1.ChartArea = "ChartArea1";
@@ -132,7 +133,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(260, 148);
+            this.chart2.Size = new System.Drawing.Size(289, 148);
             this.chart2.TabIndex = 8;
             this.chart2.Text = "chart2";
             this.chart2.Click += new System.EventHandler(this.chart2_Click);
@@ -188,6 +189,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(852, 620);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridView2
             // 
@@ -203,7 +205,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(882, 165);
+            this.dataGridView2.Location = new System.Drawing.Point(882, 143);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -240,7 +242,7 @@
             this.btnGenerarPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.btnGenerarPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerarPdf.ForeColor = System.Drawing.Color.White;
-            this.btnGenerarPdf.Location = new System.Drawing.Point(937, 600);
+            this.btnGenerarPdf.Location = new System.Drawing.Point(937, 562);
             this.btnGenerarPdf.Name = "btnGenerarPdf";
             this.btnGenerarPdf.Size = new System.Drawing.Size(188, 37);
             this.btnGenerarPdf.TabIndex = 15;
@@ -251,7 +253,7 @@
             // txtPostulantes
             // 
             this.txtPostulantes.BackColor = System.Drawing.Color.MistyRose;
-            this.txtPostulantes.Location = new System.Drawing.Point(882, 122);
+            this.txtPostulantes.Location = new System.Drawing.Point(882, 109);
             this.txtPostulantes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPostulantes.Name = "txtPostulantes";
             this.txtPostulantes.Size = new System.Drawing.Size(289, 22);
@@ -263,7 +265,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(999, 89);
+            this.label5.Location = new System.Drawing.Point(999, 76);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
@@ -271,12 +273,26 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "POSTULANTES";
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(937, 621);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(188, 37);
+            this.btnEliminar.TabIndex = 18;
+            this.btnEliminar.Text = "ELIMINAR";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Postulantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1214, 712);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtPostulantes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnGenerarPdf);
@@ -321,5 +337,6 @@
         private System.Windows.Forms.Button btnGenerarPdf;
         private System.Windows.Forms.TextBox txtPostulantes;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
