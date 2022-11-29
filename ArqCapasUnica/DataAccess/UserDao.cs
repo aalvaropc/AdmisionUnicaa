@@ -68,12 +68,13 @@ namespace DataAccess
                 }
             }
         }
-        int Idespecialidad = 0;
-        string[] vacantes = { "12", "15", "20", "20", "18", "25", "22", "24", "30", "15", "18", "25", "22", "24", "30", "22", "24", "30", "15", "18", "22", "24", "30", "22", "24" , "18", "22", "24", "30", "22" , "30", "22", "24", "30", "15", "18", "22", "24", "30", "22"};
+        int Idespecialidad = 0, especialidadd=0;
+        string[] vacantes = { "10", "12", "15", "12", "12", "10", "14", "10", "12", "15", "12", "15", "12", "14", "12", "12", "14", "10", "15", "18", "12", "14", "10", "12", "14" , "13", "12", "14", "10", "12" , "10", "12", "14", "12", "15", "18", "11", "14", "15", "11"};
         public void generate(string idPostulante, string nombre, string apePaterno, string apeMaterno, int especialidad, string respuestas, string condicion, int puntaje, int tema)
         {
             using (var connection = GetConnection())
             {
+                especialidadd = especialidad;
                 connection.Open();
                 using (var command = new SqlCommand())
                 {
@@ -81,15 +82,21 @@ namespace DataAccess
                     command.CommandText = $"Insert into Postulante values('{idPostulante.ToString()}', '{nombre.ToString()}', '{apePaterno.ToString()}', '{apeMaterno.ToString()}', {especialidad.ToString()}, '{respuestas.ToString()}','{condicion}', {puntaje.ToString()}, {UserLoginCache.IdUser}, {tema.ToString()})";
                     command.CommandType = CommandType.Text;
                     command.ExecuteNonQuery();
+                    
                 }
-
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = $"update Postulante set Condicion = 'INGRESO' where idPostulante IN(SELECT TOP {vacantes[tema-1]} IdPostulante FROM Postulante where Especialidad = {tema.ToString()} order by Condicion desc)";
+
+                    //update Postulante set Condicion = 'INGRESO' where IdPostulante IN(SELECT TOP {vacantes[especialidadd-1]} IdPostulante FROM Postulante where Postulante.Especialidad = {especialidadd.ToString()} order by (select Puntaje.puntaje from Puntaje inner join Postulante on Puntaje.IdPuntaje=Postulante.Puntaje where Postulante.Especialidad={especialidadd.ToString()}) desc);
+                    //command.CommandText = $"update Postulante set Condicion = 'INGRESO' where idPostulante IN(SELECT TOP {vacantes[especialidadd - 1]} IdPostulante FROM Postulante where Especialidad = {tema.ToString()} order by Condicion desc)";
+                    
+                    command.CommandText = $"update Postulante set Condicion = 'INGRESO' where IdPostulante IN(SELECT TOP {vacantes[especialidad - 1]} IdPostulante FROM Postulante where Postulante.Especialidad = {especialidad.ToString()} order by (select TOP 1 Puntaje.puntaje from Puntaje inner join Postulante on Puntaje.IdPuntaje=Postulante.Puntaje where Postulante.Especialidad={especialidad.ToString()}) desc)";
                     command.CommandType = CommandType.Text;
                     command.ExecuteNonQuery();
                 }
+
+
             }
         }
 

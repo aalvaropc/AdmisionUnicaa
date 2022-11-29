@@ -79,8 +79,6 @@ namespace Presentation
         int fresh1 = 0;
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-
             if (txtPassword.Text.Length > 2)
             {
                 if (txtPassword.Text == txtConfirmPass.Text)
@@ -94,11 +92,7 @@ namespace Presentation
                             lastName: txtLastName.Text,
                             email: txtEmail.Text);
                         var result = userModel.editUserProfile();
-                        //MessageBox.Show(result);
-                        //home.nameUser.Text = lblFirstName.Text;
-                        
                         reset();
-                        
                     }
                     else
                         MessageBox.Show("Contraseña actual incorrecta", "Try again");
@@ -108,14 +102,8 @@ namespace Presentation
             }
             else
                 MessageBox.Show("La contraseña debe tener mas de 2 caracteres");
-
             fresh1++;
             Freshh.fresh = fresh1;
-
         }
-
-        
-
-
     }
 }

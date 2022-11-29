@@ -310,6 +310,7 @@ namespace Presentation
                 string pos2 = Convert.ToString(connn2.ExecuteScalar());
                 connection.Close();
                 llenarDGV();
+                numeroPostulantes();
             }
                 
             

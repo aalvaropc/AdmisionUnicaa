@@ -219,6 +219,10 @@ namespace Presentation
                 tema = "";
                 limpiar();
                 MessageBox.Show("Registro guardado exitosamente, Sr(a): " + txtNombre.Text, "GUARDANDO ....", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            respBlanco = 0;
+            respCorrecta = 0;
+            respIncorrecta = 0;
+            puntaje = 0;
         }
 
         string resp = "";
@@ -275,42 +279,6 @@ namespace Presentation
                 cb_70, cb_71, cb_72, cb_73, cb_74, cb_75, cb_76, cb_77, cb_78, cb_79, cb_80, cb_81, cb_82, cb_83, cb_84, cb_85, cb_86, cb_87, cb_88, cb_89,
                 cb_90, cb_91, cb_92, cb_93, cb_94, cb_95, cb_96, cb_97, cb_98, cb_99, cb_100};
 
-            ////OBTENGO EL AREA
-            //connection.Open();
-            //SqlCommand consultaSQL3 = new SqlCommand($" SELECT AREA FROM Facultad  WHERE IdFacultad = {cbxFacultad.SelectedIndex + 1}", connection);
-            //SqlDataReader reader3 = consultaSQL3.ExecuteReader();
-            //while (reader3.Read())
-            //{
-            //    nameArea = reader3.GetInt32(0);
-            //}
-            //reader3.Close();
-            //connection.Close();
-
-            //switch (nameArea)
-            //{
-            //    case 1:
-            //        switch (r.Next(0, 3))
-            //        {
-            //            case 0: tema += "F"; break;
-            //            case 1: tema += "G"; break;
-            //            case 2: tema += "H"; break;
-            //        }; break;
-            //    case 2:
-            //        switch (r.Next(0, 3))
-            //        {
-            //            case 0: tema += "I"; break;
-            //            case 1: tema += "J";  break;
-            //            case 2: tema += "K";  break;
-            //        }; break;
-            //    case 3:
-            //        switch (r.Next(0, 3))
-            //        {
-            //            case 0: tema += "L"; break;
-            //            case 1: tema += "M";  break;
-            //            case 2: tema += "N";  break;
-            //        }; break;
-            //}
-            //temag += tema;
             connection.Open();
             SqlCommand consultaSQL = new SqlCommand($"SELECT SOLUCION FROM SOLUCIONARIO WHERE TEMA = '{tema}'", connection);
             SqlDataReader reader = consultaSQL.ExecuteReader();
@@ -351,6 +319,7 @@ namespace Presentation
         }
 
         string solucion2 = "";
+        int prob=0;
         private void btnRandom_Click(object sender, EventArgs e)
         {
             generadorTema();
@@ -376,9 +345,13 @@ namespace Presentation
 
             for (int i = 0; i < 100; i++)
             {
-                
+                prob = r.Next(0, 4);
                 lista[i].SelectedIndex = r.Next(0, 6);
-                if (lista[i].SelectedItem!=)
+
+                if (prob == 3 && lista[i].SelectedItem.ToString() != solucion2.Substring(i, 1).ToString())
+                {
+                    lista[i].SelectedItem = solucion2.Substring(i, 1).ToString();
+                }
             }
             temag = "";
         }
