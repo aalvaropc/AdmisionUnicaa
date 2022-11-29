@@ -19,7 +19,7 @@ namespace Presentation
         {
             InitializeComponent();
         }
-        SqlConnection connection = new SqlConnection("server=LAPTOP-8LNIGLG0 ; database=prueba ; integrated security = true");
+        SqlConnection connection = new SqlConnection("server=DESKTOP-8NTIIEU ; database=prueba ; integrated security = true");
         Random r = new Random();
         string tema = "", consulta = "", temag="";
         private void Manual_Load(object sender, EventArgs e)

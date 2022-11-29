@@ -18,7 +18,7 @@ namespace Presentation
     internal class GenerarPDF
     {
 
-        SqlConnection connection = new SqlConnection("server=LAPTOP-8LNIGLG0 ; database=prueba ; integrated security = true");
+        SqlConnection connection = new SqlConnection("server=DESKTOP-8NTIIEU ; database=prueba ; integrated security = true");
         SqlCommand command;
 
         String consulta;
@@ -122,6 +122,13 @@ namespace Presentation
                         String pntj = Convert.ToString(command.ExecuteScalar());
 
 
+                        consulta = "SELECT Condicion FROM (SELECT ROW_NUMBER() OVER (ORDER BY pun.PUNTAJE DESC) AS Orden, " +
+                            "pos.Condicion FROM Postulante pos INNER JOIN PUNTAJE pun ON pos.Puntaje = pun.IdPuntaje WHERE " +
+                            "pos.Especialidad = " + i + ") POSTULANTE WHERE ORDEN = " + j;
+
+                        command = new SqlCommand(consulta, connection);
+                        String condicion = Convert.ToString(command.ExecuteScalar());
+
                         //consulta = "SELECT condicion FROM (SELECT ROW_NUMBER() OVER (ORDER BY pun.PUNTAJE DESC) AS Orden, pun.PUNTAJE FROM Postulante pos INNER JOIN PUNTAJE " +
                         //    "pun ON pos.Puntaje = pun.IdPuntaje WHERE pos.Especialidad = " + i + ") POSTULANTE  WHERE ORDEN = " + j;
 
@@ -135,7 +142,7 @@ namespace Presentation
                         c9 = new PdfPCell(new Phrase(nomb, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_JUSTIFIED, BorderColor = BaseColor.BLACK, Padding = 3f };
                         c10 = new PdfPCell(new Phrase(pntj, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
                         c11 = new PdfPCell(new Phrase(j.ToString(), ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-                        c12 = new PdfPCell(new Phrase("INGRESO", ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
+                        c12 = new PdfPCell(new Phrase(condicion , ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
                         tbl.AddCell(c7);
                         tbl.AddCell(c8);
                         tbl.AddCell(c9);
@@ -154,7 +161,7 @@ namespace Presentation
             MessageBox.Show("PDF GENERADO EXITOSAMENTE", "HECHO");
         }
 
-        /
+        
         class HeaderFooter : PdfPageEventHelper
         {
             public override void OnStartPage(PdfWriter writer, Document document)
