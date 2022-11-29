@@ -25,7 +25,7 @@ namespace Presentation
             InitializeComponent();
         }
 
-        SqlConnection connection = new SqlConnection("server=LAPTOP-8LNIGLG0 ; database=prueba ; integrated security = true");
+        SqlConnection connection = new SqlConnection("server=DESKTOP-8NTIIEU ; database=prueba ; integrated security = true");
         private void Generar_Load(object sender, EventArgs e)
         {
            
@@ -51,7 +51,7 @@ namespace Presentation
 
             string fullName;
             int cantidadPos = Convert.ToInt32(txtCantAlumnos.Text);
-            StreamReader sr = new StreamReader("C:\\Users\\estilos\\Desktop\\NombresPostulantesValidos.txt");
+            StreamReader sr = new StreamReader(@"C:\Users\Estilos\Desktop\J\NombresPostulantesValidos.txt");
 
             Random r = new Random();
             string resp = "";
@@ -181,7 +181,7 @@ namespace Presentation
             }
             sr.Close();
             //MessageBox.Show(gIdPostulante);
-            SqlConnection cn = new SqlConnection("Server=LAPTOP-8LNIGLG0;DataBase=prueba; integrated security=true"); ;
+            SqlConnection cn = new SqlConnection("Server=DESKTOP-8NTIIEU;DataBase=prueba; integrated security=true"); ;
             SqlCommand cmd = new SqlCommand($"Select * from Postulante where IdPostulante in ({gIdPostulante})", cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
