@@ -138,9 +138,6 @@ namespace Presentation
 
         }
 
-        
-        
-
         int respBlanco = 0, respCorrecta = 0, respIncorrecta = 0;
 
 
@@ -213,12 +210,12 @@ namespace Presentation
                 PostulanteModel postulante = new PostulanteModel();
                 postulante.generate(codigo, nombre, apePat, apeMat, codEspecialidad, respuesta, "NO INGRESO", 200000000 + Convert.ToInt32(codigo), codSol);
 
-            //resetear las repuestas
-                //temag = codEspecialidad;
+         
                 resp = "";
                 tema = "";
-                limpiar();
+                
                 MessageBox.Show("Registro guardado exitosamente, Sr(a): " + txtNombre.Text, "GUARDANDO ....", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            limpiar();
             respBlanco = 0;
             respCorrecta = 0;
             respIncorrecta = 0;

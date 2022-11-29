@@ -193,8 +193,6 @@ namespace Presentation
             try
             {
                 int n = e.RowIndex;
-                //string codigo = "";
-
 
                 if (n != -1)
                 {

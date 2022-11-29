@@ -37,8 +37,13 @@ namespace Presentation
         string tema = "";
         int especialidad = 1;
         int idsol = 0;
+
+        List<string> puntaje2 = new List<string>();
         int y = 0;
         //public string resp { get; }
+
+        //List<string> puntajes = new List<string>();
+        string puntaje = "";
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             string resp = "";
@@ -140,10 +145,7 @@ namespace Presentation
                     prob = r.Next(0, 3);
                     if (resp.Substring(j, 1).ToString() != consulta[j].ToString() && prob == 2)
                     {
-                        //if(consulta.Substring(j, 1) != null)
-                        //{
-                        //}
-                        //resp.Replace(resp.Substring(j, 1), consulta[j]);
+
                         StringBuilder sb = new StringBuilder(resp);
                         sb[j] = consulta[j];
                         resp = sb.ToString();
@@ -193,6 +195,9 @@ namespace Presentation
                 puntaje = 0;
             }
             sr.Close();
+
+            connection.Open();
+
             SqlConnection cn = new SqlConnection("Server=LAPTOP-8LNIGLG0;DataBase=prueba; integrated security=true"); ;
             SqlCommand cmd = new SqlCommand($"Select * from Postulante where IdPostulante in ({gIdPostulante})", cn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -210,24 +215,6 @@ namespace Presentation
             y++;
             gIdPostulante = "";
             SaveGenerate.Save = almacenado;
-
-
-            //11-37
-            string[] vacantes = { "10", "12", "15", "12", "12", "10", "14", "10", "12", "15", "12", "15", "12", "14", "12", "12", "14", "10", "15", "18", "12", "14", "10", "12", "14", "13", "12", "14", "10", "12", "10", "12", "14", "12", "15", "18", "11", "14", "15", "11" };
-            MessageBox.Show(vacantes[especialidad - 1]+ " - "+ especialidad.ToString());
-
-            //CORREGIR UPDATE
-
-            for(int i=0; i<40; i++)
-            {
-                connection.Open();
-                SqlCommand comandoo = new SqlCommand($"update Postulante set Condicion = 'INGRESO' where IdPostulante IN(SELECT TOP {vacantes[i]} IdPostulante FROM Postulante where Postulante.Especialidad = {(especialidad+1).ToString()} order by (select TOP 1 Puntaje.puntaje from Puntaje inner join Postulante on Puntaje.IdPuntaje=Postulante.Puntaje where Postulante.Especialidad={(especialidad+1).ToString()}) desc)", connection);
-                comandoo.ExecuteNonQuery();
-                connection.Close();
-            }
-            
-
-
 
         }
 

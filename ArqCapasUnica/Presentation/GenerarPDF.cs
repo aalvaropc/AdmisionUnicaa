@@ -22,28 +22,6 @@ namespace Presentation
         SqlCommand command;
 
         String consulta;
-        /*Document document;
-        FileStream fs;
-        iTextSharp.text.Font n10;
-        iTextSharp.text.Font n12;
-        iTextSharp.text.Font ft;
-    
-
-        private void initializePDF() 
-        {
-            document = new Document(iTextSharp.text.PageSize.A4);
-
-            PdfWriter pw = PdfWriter.GetInstance(document, fs);
-            pw.PageEvent = new HeaderFooter();
-
-            document.Open();
-            BaseFont bfttimes = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
-            BaseFont bft = BaseFont.CreateFont(BaseFont.COURIER, BaseFont.CP1250, false);
-
-            iTextSharp.text.Font n10 = new iTextSharp.text.Font(bfttimes, 10f, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-            iTextSharp.text.Font n12 = new iTextSharp.text.Font(bfttimes, 12f, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-            iTextSharp.text.Font ft = new iTextSharp.text.Font(bft, 8f, iTextSharp.text.Font.NORMAL);
-        }*/
 
         public void Generar()
         {
@@ -128,6 +106,13 @@ namespace Presentation
                         //command = new SqlCommand(consulta, connection);
                         //String pntj = Convert.ToString(command.ExecuteScalar());
 
+                        consulta = "SELECT Condicion FROM (SELECT ROW_NUMBER() OVER (ORDER BY pun.PUNTAJE DESC) AS Orden, " +
+                            "pos.Condicion FROM Postulante pos INNER JOIN PUNTAJE pun ON pos.Puntaje = pun.IdPuntaje WHERE " +
+                            "pos.Especialidad = " + i + ") POSTULANTE WHERE ORDEN = " + j;
+
+                        command = new SqlCommand(consulta, connection);
+                        String condicion = Convert.ToString(command.ExecuteScalar());
+
 
 
                         c7 = new PdfPCell(new Phrase(j.ToString(), ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
@@ -135,7 +120,7 @@ namespace Presentation
                         c9 = new PdfPCell(new Phrase(nomb, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_JUSTIFIED, BorderColor = BaseColor.BLACK, Padding = 3f };
                         c10 = new PdfPCell(new Phrase(pntj, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
                         c11 = new PdfPCell(new Phrase(j.ToString(), ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-                        c12 = new PdfPCell(new Phrase("INGRESO", ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
+                        c12 = new PdfPCell(new Phrase(condicion, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
                         tbl.AddCell(c7);
                         tbl.AddCell(c8);
                         tbl.AddCell(c9);
@@ -154,7 +139,7 @@ namespace Presentation
             MessageBox.Show("PDF GENERADO EXITOSAMENTE", "HECHO");
         }
 
-        /
+        
         class HeaderFooter : PdfPageEventHelper
         {
             public override void OnStartPage(PdfWriter writer, Document document)
