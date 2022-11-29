@@ -121,6 +121,15 @@ namespace Presentation
                         command = new SqlCommand(consulta, connection);
                         String pntj = Convert.ToString(command.ExecuteScalar());
 
+
+                        //consulta = "SELECT condicion FROM (SELECT ROW_NUMBER() OVER (ORDER BY pun.PUNTAJE DESC) AS Orden, pun.PUNTAJE FROM Postulante pos INNER JOIN PUNTAJE " +
+                        //    "pun ON pos.Puntaje = pun.IdPuntaje WHERE pos.Especialidad = " + i + ") POSTULANTE  WHERE ORDEN = " + j;
+
+                        //command = new SqlCommand(consulta, connection);
+                        //String pntj = Convert.ToString(command.ExecuteScalar());
+
+
+
                         c7 = new PdfPCell(new Phrase(j.ToString(), ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
                         c8 = new PdfPCell(new Phrase(cod, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
                         c9 = new PdfPCell(new Phrase(nomb, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_JUSTIFIED, BorderColor = BaseColor.BLACK, Padding = 3f };
@@ -142,77 +151,15 @@ namespace Presentation
             document.Close();
             connection.Close();
 
-            MessageBox.Show("", "HECHO");
+            MessageBox.Show("PDF GENERADO EXITOSAMENTE", "HECHO");
         }
 
-        /*
-        private void GenerarTabla(int especialidad, int n, String carrera) 
-        {
-            document.Add(new Paragraph("CARRERA: " + carrera, n10));
-            document.Add(new Paragraph("MODALIDAD: ORDINARIO"));
-            document.Add(Chunk.NEWLINE);
-            var tbl = new PdfPTable(new float[] { 5f, 7f, 15f, 7f, 5f, 10f }) { WidthPercentage = 100f };
-            var c7 = new PdfPCell(new Phrase("N° Ord.", n10)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-            var c8 = new PdfPCell(new Phrase("CODIGO", n10)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-            var c9 = new PdfPCell(new Phrase("APELLIDOS Y NOMBRES", n10)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-            var c10 = new PdfPCell(new Phrase("PUNTAJE", n10)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-            var c11 = new PdfPCell(new Phrase("MERITO", n10)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-            var c12 = new PdfPCell(new Phrase("CONDICION", n10)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-            tbl.AddCell(c7);
-            tbl.AddCell(c8);
-            tbl.AddCell(c9);
-            tbl.AddCell(c10);
-            tbl.AddCell(c11);
-            tbl.AddCell(c12);
-
-            for (int i = 1; i <= n; i++)
-            {
-                consulta = "SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY pun.PUNTAJE DESC) AS Orden, pos.PUNTAJE FROM Postulante pos INNER JOIN PUNTAJE " +
-                    "pun ON pos.Puntaje = pun.IdPuntaje WHERE pos.Especialidad = " + especialidad + ") POSTULANTE  WHERE ORDEN = " + i;
-              
-                command = new SqlCommand(consulta, connection);
-                String cod = Convert.ToString(command.ExecuteScalar());
-
-
-                consulta = "SELECT * FROM(SELECT ROW_NUMBER() OVER (ORDER BY pun.PUNTAJE DESC) AS Orden, CONCAT_WS(' ', pos.ApePaterno, pos.ApeMaterno, " +
-                    "pos.Nombre) Nombres FROM Postulante pos INNER JOIN PUNTAJE pun ON pos.Puntaje = pun.IdPuntaje WHERE pos.Especialidad = " + especialidad + ") " +
-                    "POSTULANTE WHERE ORDEN = " + i;
-
-                command = new SqlCommand(consulta, connection);
-                String nomb = Convert.ToString(command.ExecuteScalar());
-
-
-                consulta = "SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY pun.PUNTAJE DESC) AS Orden, pun.PUNTAJE FROM Postulante pos INNER JOIN PUNTAJE " +
-                    "pun ON pos.Puntaje = pun.IdPuntaje WHERE pos.Especialidad = " + especialidad + ") POSTULANTE  WHERE ORDEN = " + i;
-
-                command = new SqlCommand(consulta, connection);
-                String pntj = Convert.ToString(command.ExecuteScalar());
-
-                c7 = new PdfPCell(new Phrase(i.ToString(), ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-                c8 = new PdfPCell(new Phrase(cod, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-                c9 = new PdfPCell(new Phrase(nomb, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_JUSTIFIED, BorderColor = BaseColor.BLACK, Padding = 3f };
-                c10 = new PdfPCell(new Phrase(pntj, ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-                c11 = new PdfPCell(new Phrase(i.ToString(), ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-                c12 = new PdfPCell(new Phrase("INGRESO", ft)) { BorderWidthBottom = 1f, HorizontalAlignment = Element.ALIGN_CENTER, BorderColor = BaseColor.BLACK, Padding = 3f };
-                tbl.AddCell(c7);
-                tbl.AddCell(c8);
-                tbl.AddCell(c9);
-                tbl.AddCell(c10);
-                tbl.AddCell(c11);
-                tbl.AddCell(c12);
-            }
-
-            document.Add(tbl);
-            document.NewPage();
-        }*/
-
-
+        /
         class HeaderFooter : PdfPageEventHelper
         {
             public override void OnStartPage(PdfWriter writer, Document document)
             {
-                //base.OnEndPage(writer, document);
-                //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Path.Combine("logo.jpg"));
+
                 BaseFont bfttimes = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
                 iTextSharp.text.Font n10 = new iTextSharp.text.Font(bfttimes, 10f, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
                 iTextSharp.text.Font n12 = new iTextSharp.text.Font(bfttimes, 12f, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
