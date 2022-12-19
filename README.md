@@ -1,7 +1,5 @@
 # AdmisionUnica
 
-- - -
-
 ## Pasos para instalar el Proyecto
 1. Abre visual studio 2022
 2. Clonar repositorio copiando la ruta: "https://github.com/aalvaropc/AdmisionUnicaa.git"
